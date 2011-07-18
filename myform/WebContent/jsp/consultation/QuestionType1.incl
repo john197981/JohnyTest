@@ -1,0 +1,129 @@
+<logic:present name="questionListing" property="answer1">
+		<tr>
+			<td >&nbsp;</td>
+			<td width="1%"  align = "left" class="Heading_Thread">
+				<logic:equal name="questionListing" property="response1" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A1' type="checkbox" value="answer1" checked="checked" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A1' type="checkbox" value="answer1" checked="checked" >
+					</logic:notEqual>
+				</logic:equal>
+				<logic:notEqual name="questionListing" property="response1" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A1' type="checkbox" value="answer1" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A1' type="checkbox" value="answer1">
+					</logic:notEqual>
+				</logic:notEqual>
+			</td>
+			<td align = "left" class="Heading_Thread"><bean:write name="questionListing" property="answer1" /></td>
+		</tr>
+	</logic:present>
+	<logic:present name="questionListing" property="answer2">
+		<tr>
+			<td >&nbsp;</td>
+			<td align = "left" class="Heading_Thread">
+				<logic:equal name="questionListing" property="response2" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A2' type="checkbox" value="answer2" checked="checked" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A2' type="checkbox" value="answer2" checked="checked">
+					</logic:notEqual>
+				</logic:equal>
+				<logic:notEqual name="questionListing" property="response2" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A2' type="checkbox" value="answer2" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A2' type="checkbox" value="answer2">
+					</logic:notEqual>
+				</logic:notEqual>
+			</td>
+			<td align = "left" class="Heading_Thread"><bean:write name="questionListing" property="answer2" /></td>
+		</tr>
+	</logic:present>
+	<logic:present name="questionListing" property="answer3">
+		<tr>
+			<td >&nbsp;</td>
+			<td align = "left" class="Heading_Thread">
+				<logic:equal name="questionListing" property="response3" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A3' type="checkbox" value="answer3" checked="checked" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A3' type="checkbox" value="answer3" checked="checked">
+					</logic:notEqual>
+				</logic:equal>
+				<logic:notEqual name="questionListing" property="response3" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A3' type="checkbox" value="answer3" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A3' type="checkbox" value="answer3">
+					</logic:notEqual>
+				</logic:notEqual>
+			</td>
+			<td align = "left" class="Heading_Thread"><bean:write name="questionListing" property="answer3" /></td>
+		</tr>
+	</logic:present>
+	<logic:present name="questionListing" property="answer4">
+		<tr>
+			<td >&nbsp;</td>
+			<td align = "left" class="Heading_Thread">
+				<logic:equal name="questionListing" property="response4" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A4' type="checkbox" value="answer4" checked="checked" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A4' type="checkbox" value="answer4" checked="checked">
+					</logic:notEqual>
+				</logic:equal>
+				<logic:notEqual name="questionListing" property="response4" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A4' type="checkbox" value="answer4" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A4' type="checkbox" value="answer4">
+					</logic:notEqual>
+				</logic:notEqual>
+			</td>
+			<td align = "left" class="Heading_Thread"><bean:write name="questionListing" property="answer4" /></td>
+		</tr>
+	</logic:present>
+	<logic:present name="questionListing" property="answer5">
+		<tr>
+			<td >&nbsp;</td>
+			<td align = "left" class="Heading_Thread">
+				<logic:equal name="questionListing" property="response5" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A5' type="checkbox" value="answer5" checked="checked" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A5' type="checkbox" value="answer5" checked="checked">
+					</logic:notEqual>
+				</logic:equal>
+				<logic:notEqual name="questionListing" property="response5" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A5' type="checkbox" value="answer5" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' id='<bean:write name="questionListing" property="questionId" />A5' type="checkbox" value="answer5" onclick='fnCheckBoxOthers(this,document.ConsultPresentPaperForm.otherRemarks<bean:write name="questionListing" property="questionId" />)'>
+					</logic:notEqual>
+				</logic:notEqual>
+			</td>
+			<td align = "left" class="Heading_Thread"><bean:write name="questionListing" property="answer5" /></td>
+		</tr>
+	</logic:present>
+	<logic:present name="questionListing" property="otherRemarks">
+		<tr>
+			<td >&nbsp;</td>
+			<td nowrap class="Heading_Thread">&nbsp;</td>
+			<td class="Heading_Thread">
+				<input name='otherRemarks<bean:write name="questionListing" property="questionId" />' type="text" maxlength="200" value='<bean:write name="questionListing" property="otherRemarks" />' class="Text_box" onkeypress="document.getElementById('<bean:write name="questionListing" property="questionId" />A5').checked = true;">
+			</td>
+		</tr>
+</logic:present>

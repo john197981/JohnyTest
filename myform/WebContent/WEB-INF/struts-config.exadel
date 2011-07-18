@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS ENTITY="StrutsProcess">
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action1"
+  TITLE="loginForm" ID="#loginAction" TYPE="action" PATH="/loginAction" SHAPE="240,145,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="success" ID="success" TYPE="forward" PATH="/home.do" TARGET="action21"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="logout" ID="logout" TYPE="forward" PATH="/login.jsp" TARGET="page10"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="forward2"
+  TITLE="goAdmin" ID="goAdmin" TYPE="forward"
+  PATH="/jsp/admin/iofm_AdminFrameSet.jsp" SHAPE="240,369,0,0" TARGET="page9"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="forward0"
+  TITLE="goForum" ID="goForum" TYPE="forward"
+  PATH="/jsp/forum/iofm_Discussion.jsp" SHAPE="32,577,0,0" TARGET="page11"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="forward3"
+  TITLE="goConsultation" ID="goConsultation" TYPE="forward"
+  PATH="/jsp/consultation/iofm_ConsultationPaperList.jsp"
+  SHAPE="32,801,0,0" TARGET="page12"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="forward4"
+  TITLE="goSurvey" ID="goSurvey" TYPE="forward"
+  PATH="/jsp/survey/iofm_SurveyList.jsp" SHAPE="32,913,0,0" TARGET="page13"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action2"
+  TITLE="ConsultListingForm" ID="#consultListingAction" TYPE="action"
+  PATH="/consultListingAction" SHAPE="32,1025,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="forward1" TITLE="goHome"
+  ID="goHome" TYPE="forward" PATH="/jsp/common/iofm_Home.jsp"
+  SHAPE="240,257,0,0" TARGET="page15"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action3" ID="#error"
+  TYPE="action" SUBTYPE="parameter" PATH="/error" SHAPE="240,481,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="action3"
+   TITLE="parameter" TYPE="forward" PATH="/jsp/common/iofmError.jsp" TARGET="page16"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action4"
+  TITLE="ConsultCategoryForm" ID="#consultCreateCategoryAction"
+  TYPE="action" PATH="/consultCreateCategoryAction" SHAPE="32,577,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action5"
+  TITLE="ConsultCategoryForm" ID="#consultViewModifyCategoryAction"
+  TYPE="action" PATH="/consultViewModifyCategoryAction" SHAPE="32,1137,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action6"
+  TITLE="ConsultPageForm" ID="#consultCreatePageAction" TYPE="action"
+  PATH="/consultCreatePageAction" SHAPE="32,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action7"
+  TITLE="ConsultPageForm" ID="#consultViewModifyPageAction"
+  TYPE="action" PATH="/consultViewModifyPageAction" SHAPE="32,1361,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="forward5" TITLE="error"
+  ID="error" TYPE="forward" PATH="/jsp/common/iofmError.jsp"
+  SHAPE="240,2577,0,0" TARGET="page16"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action8"
+  TITLE="ThreadForm" ID="#ThreadList" TYPE="action" PATH="/ThreadList" SHAPE="32,2673,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="ThreadList" ID="ThreadList" TYPE="forward"
+   PATH="/jsp/forum/OIForumTemplate.jsp" TARGET="page17"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action9"
+  TITLE="AlertFriendForm" ID="#AlertFriendAction" TYPE="action"
+  PATH="/AlertFriendAction" SHAPE="32,2897,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/common/iofmCommonWebTemplate.jsp" TARGET="page18"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action10"
+  TITLE="UserProfileForm" ID="#UserProfile" TYPE="action"
+  PATH="/UserProfile" SHAPE="240,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="search" ID="search" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="AdminUserView" ID="AdminUserView" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminProfileDetail.jsp" TARGET="page19"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward2"
+   TITLE="UserView" ID="UserView" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminUserProfile.jsp" TARGET="page2"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action11"
+  TITLE="SendMailForm" ID="#SendMail" TYPE="action" PATH="/SendMail" SHAPE="256,3025,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="SurveyList" ID="SurveyList" TYPE="forward"
+   PATH="/jsp/common/iofmSurveyList.jsp" TARGET="page20"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="SendMail" ID="SendMail" TYPE="forward"
+   PATH="/jsp/common/iofmCommonTemplate.jsp" TARGET="page21"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward2"
+   TITLE="PaperList" ID="PaperList" TYPE="forward"
+   PATH="/jsp/common/iofmPaperList.jsp" TARGET="page22"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward3"
+   TITLE="AdminMail" ID="AdminMail" TYPE="forward"
+   PATH="/jsp/forum/iofmMail.jsp" TARGET="page1"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action12"
+  TITLE="ForumBoardForm" ID="#adminForumCreateBoardAction" TYPE="action"
+  PATH="/adminForumCreateBoardAction" SHAPE="240,1025,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action13"
+  TITLE="ForumCategoryForm" ID="#adminForumViewModifyCategoryAction"
+  TYPE="action" PATH="/adminForumViewModifyCategoryAction" SHAPE="240,1393,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action14"
+  TITLE="ConsultPastPaperForm" ID="#webConsultPastPaperAction"
+  TYPE="action" PATH="/webConsultPastPaperAction" SHAPE="240,3313,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/consultation/iofmConsultTemplate.jsp" TARGET="page23"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="print" ID="print" TYPE="forward"
+   PATH="/jsp/consultation/iofmConsultationPaperClosedPrint.jsp" TARGET="page24"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action15"
+  TITLE="ConsultQuestionForm" ID="#consultViewModifyQuestionAction"
+  TYPE="action" PATH="/consultViewModifyQuestionAction" SHAPE="32,3697,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmConsultQuestion.jsp" TARGET="page25"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action16"
+  TITLE="UserSurveyForm" ID="#UserSurvey" TYPE="action"
+  PATH="/UserSurvey" SHAPE="240,3937,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="UserPage" ID="UserPage" TYPE="forward"
+   PATH="/jsp/survey/OISurveyTemplate.jsp" TARGET="page26"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="PreviewPage" ID="PreviewPage" TYPE="forward"
+   PATH="/jsp/survey/OISurveyPreviewDetails.jsp" TARGET="page27"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action17"
+  TITLE="SectionForm" ID="#SurveySection" TYPE="action"
+  PATH="/SurveySection" SHAPE="240,913,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action18"
+  TITLE="SelectForm" ID="#SelectUsers" TYPE="action" PATH="/SelectUsers" SHAPE="240,4081,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="SelectUser" ID="SelectUser" TYPE="forward"
+   PATH="/jsp/common/iofmSelectUsers.jsp" TARGET="page28"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action19"
+  TITLE="ForumTopicForm" ID="#adminForumCreateTopicAction" TYPE="action"
+  PATH="/adminForumCreateTopicAction" SHAPE="240,1505,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action20"
+  TITLE="SelectForm" ID="#SelectGroups" TYPE="action"
+  PATH="/SelectGroups" SHAPE="240,4193,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="SelectGroups" ID="SelectGroups" TYPE="forward"
+   PATH="/jsp/common/iofmSelectGroups.jsp" TARGET="page29"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action21"
+  TITLE="HomeForm" ID="#home" TYPE="action" PATH="/home" SHAPE="512,161,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/common/iofm_Home.jsp" TARGET="page15"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="thanks" ID="thanks" TYPE="forward"
+   PATH="/jsp/common/iofmThanks.jsp" TARGET="page30"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward2"
+   TITLE="publish" ID="publish" TYPE="forward"
+   PATH="/jsp/poll/iofmPollResult.jsp" TARGET="page31"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action22"
+  TITLE="ForumTopicForm" ID="#adminForumViewModifyTopicAction"
+  TYPE="action" PATH="/adminForumViewModifyTopicAction" SHAPE="240,1617,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action23"
+  ID="#WebForumListingAction" TYPE="action"
+  PATH="/WebForumListingAction" SHAPE="32,2785,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/forum/OIForumTemplate.jsp" TARGET="page17"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action24"
+  TITLE="ForumCategoryForm" ID="#adminForumCreateCategoryAction"
+  TYPE="action" PATH="/adminForumCreateCategoryAction" SHAPE="240,689,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action25"
+  TITLE="PollForm" ID="#Poll" TYPE="action" PATH="/Poll" SHAPE="512,17,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="print" ID="print" TYPE="forward"
+   PATH="/jsp/poll/iofmPollResult.jsp" TARGET="page31"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="PollList" ID="PollList" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action26"
+  TITLE="QuestionForm" ID="#SurveyQuestion" TYPE="action"
+  PATH="/SurveyQuestion" SHAPE="240,1729,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="EditPage" ID="EditPage" TYPE="forward"
+   PATH="/jsp/survey/admin/OIQuestionEdit.jsp" TARGET="page32"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action27"
+  TITLE="ForumListing" ID="#adminForumListing" TYPE="action"
+  PATH="/adminForumListing" SHAPE="240,1873,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action28"
+  TITLE="RolesForm" ID="#Roles" TYPE="action" PATH="/Roles" SHAPE="240,1985,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action29"
+  TITLE="ConsultListingFormWeb" ID="#webConsultListingAction"
+  TYPE="action" PATH="/webConsultListingAction" SHAPE="240,3457,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/consultation/iofmConsultTemplate.jsp" TARGET="page23"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action30"
+  TITLE="ConsultPublishForm" ID="#consultPaperPublishAction"
+  TYPE="action" PATH="/consultPaperPublishAction" SHAPE="240,2097,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="export" ID="export" TYPE="forward"
+   PATH="/jsp/admin/iofmConsultPaperPublishExport.jsp" TARGET="page33"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action31"
+  TITLE="ForumBoardForm" ID="#adminForumViewModifyBoardAction"
+  TYPE="action" PATH="/adminForumViewModifyBoardAction" SHAPE="240,2241,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action32"
+  TITLE="ConfigurationForm" ID="#adminConfiguration" TYPE="action"
+  PATH="/adminConfiguration" SHAPE="240,33,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action33"
+  TITLE="TempUserForm" ID="#SurveyTempUser" TYPE="action"
+  PATH="/SurveyTempUser" SHAPE="240,2353,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action34"
+  TITLE="MemberProfileForm" ID="#MemberProfileAction" TYPE="action"
+  PATH="/MemberProfileAction" SHAPE="32,4289,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/profile/iofmProfileViewPublic.jsp" TARGET="page34"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action35"
+  TITLE="UserResponseForm" ID="#UserSurveyResponse" TYPE="action"
+  PATH="/UserSurveyResponse" SHAPE="240,4417,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="UserPage" ID="UserPage" TYPE="forward"
+   PATH="/jsp/survey/OISurveyQuestionResponses.jsp" TARGET="page35"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action36"
+  TITLE="ConsultQuestionForm" ID="#consultCreateQuestionAction"
+  TYPE="action" PATH="/consultCreateQuestionAction" SHAPE="32,3809,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmConsultQuestion.jsp" TARGET="page25"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action37"
+  TITLE="SurveyForm" ID="#SurveyAdmin" TYPE="action" PATH="/SurveyAdmin" SHAPE="240,2465,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action38"
+  TITLE="ConsultPresentPaperForm" ID="#webConsultOpenPaperAction"
+  TYPE="action" PATH="/webConsultOpenPaperAction" SHAPE="240,3569,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/consultation/iofmConsultTemplate.jsp" TARGET="page23"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="print" ID="print" TYPE="forward"
+   PATH="/jsp/consultation/iofmConsultationPaperOpenPrint.jsp" TARGET="page36"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page7" TITLE="index.jsp"
+  TYPE="page" SUBTYPE="jsp" PATH="/jsp/index.jsp" SHAPE="448,369,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/loginAction.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/loginAction.do" TARGET="action1"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page9"
+  TITLE="iofm_AdminFrameSet.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/admin/iofm_AdminFrameSet.jsp" SHAPE="448,593,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page11"
+  TITLE="iofm_Discussion.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/forum/iofm_Discussion.jsp" SHAPE="240,689,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page12"
+  TITLE="iofm_ConsultationPaperList.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/consultation/iofm_ConsultationPaperList.jsp" SHAPE="448,801,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page13"
+  TITLE="iofm_SurveyList.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/survey/iofm_SurveyList.jsp" SHAPE="240,1025,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page14"
+  TITLE="iofmAdminTemplate.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/admin/iofmAdminTemplate.jsp" SHAPE="448,1025,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page15"
+  TITLE="iofm_Home.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/iofm_Home.jsp" SHAPE="656,257,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/home.do" TYPE="link" SUBTYPE="confirmed" PATH="/home.do" TARGET="action21"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page16"
+  TITLE="iofmError.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/iofmError.jsp" SHAPE="448,705,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page17"
+  TITLE="OIForumTemplate.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/forum/OIForumTemplate.jsp" SHAPE="256,2690,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page18"
+  TITLE="iofmCommonWebTemplate.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/iofmCommonWebTemplate.jsp" SHAPE="240,2914,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page19"
+  TITLE="iofmAdminProfileDetail.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/admin/iofmAdminProfileDetail.jsp" SHAPE="32,1602,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/UserProfile.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/UserProfile.do" TARGET="action10"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page20"
+  TITLE="iofmSurveyList.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/iofmSurveyList.jsp" SHAPE="32,3010,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/SendMail.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/SendMail.do" TARGET="action11"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page21"
+  TITLE="iofmCommonTemplate.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/iofmCommonTemplate.jsp" SHAPE="496,3010,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page22"
+  TITLE="iofmPaperList.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/iofmPaperList.jsp" SHAPE="32,3186,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/SendMail.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/SendMail.do" TARGET="action11"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page23"
+  TITLE="iofmConsultTemplate.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/consultation/iofmConsultTemplate.jsp" SHAPE="480,3298,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page24"
+  TITLE="iofmConsultationPaperClosedPrint.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/consultation/iofmConsultationPaperClosedPrint.jsp" SHAPE="480,3442,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page25"
+  TITLE="iofmConsultQuestion.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/admin/iofmConsultQuestion.jsp" SHAPE="256,3714,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/consultCreateQuestionAction.do" TYPE="link"
+   SUBTYPE="confirmed" PATH="/consultCreateQuestionAction.do" TARGET="action36"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page26"
+  TITLE="OISurveyTemplate.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/survey/OISurveyTemplate.jsp" SHAPE="464,3922,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page27"
+  TITLE="OISurveyPreviewDetails.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/survey/OISurveyPreviewDetails.jsp" SHAPE="32,3922,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/UserSurvey.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/UserSurvey.do" TARGET="action16"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page28"
+  TITLE="iofmSelectUsers.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/iofmSelectUsers.jsp" SHAPE="32,4066,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/SelectUsers.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/SelectUsers.do" TARGET="action18"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page29"
+  TITLE="iofmSelectGroups.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/iofmSelectGroups.jsp" SHAPE="32,4178,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/SelectGroups.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/SelectGroups.do" TARGET="action20"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page30"
+  TITLE="iofmThanks.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/iofmThanks.jsp" SHAPE="752,178,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page31"
+  TITLE="iofmPollResult.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/poll/iofmPollResult.jsp" SHAPE="752,34,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/Poll.do" TYPE="link" SUBTYPE="confirmed" PATH="/Poll.do" TARGET="action25"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page32"
+  TITLE="OIQuestionEdit.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/survey/admin/OIQuestionEdit.jsp" SHAPE="32,1714,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/SurveyQuestion.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/SurveyQuestion.do" TARGET="action26"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page33"
+  TITLE="iofmConsultPaperPublishExport.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/admin/iofmConsultPaperPublishExport.jsp" SHAPE="512,2082,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page34"
+  TITLE="iofmProfileViewPublic.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/profile/iofmProfileViewPublic.jsp" SHAPE="240,4306,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page35"
+  TITLE="OISurveyQuestionResponses.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/survey/OISurveyQuestionResponses.jsp" SHAPE="32,4402,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/UserSurveyResponse.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/UserSurveyResponse.do" TARGET="action35"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page36"
+  TITLE="iofmConsultationPaperOpenPrint.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/consultation/iofmConsultationPaperOpenPrint.jsp" SHAPE="32,3554,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/webConsultOpenPaperAction.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/webConsultOpenPaperAction.do" TARGET="action38"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action0"
+  TITLE="GroupsForm" ID="#Groups" TYPE="action" PATH="/Groups" SHAPE="240,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action39"
+  TITLE="ThreadForm" ID="#ThreadMaintain" TYPE="action"
+  PATH="/ThreadMaintain" SHAPE="32,3233,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="UserPage" ID="UserPage" TYPE="forward"
+   PATH="/jsp/forum/OIForumTemplate.jsp" TARGET="page17"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="PopupPage" ID="PopupPage" TYPE="forward"
+   PATH="/jsp/forum/OIForumPopupTemplate.jsp" TARGET="page0"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page0"
+  TITLE="OIForumPopupTemplate.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/forum/OIForumPopupTemplate.jsp" SHAPE="272,3426,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page1"
+  TITLE="iofmMail.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/forum/iofmMail.jsp" SHAPE="464,3137,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/SendMail.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/SendMail.do" TARGET="action11"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page2"
+  TITLE="iofmAdminUserProfile.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/admin/iofmAdminUserProfile.jsp" SHAPE="448,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/UserProfile.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/UserProfile.do" TARGET="action10"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action41"
+  TITLE="CodeMasterForm" ID="#CodeMaster" TYPE="action"
+  PATH="/CodeMaster" SHAPE="240,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="CodeMaster" ID="CodeMaster" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action40"
+  TITLE="SimpleSearchForm" ID="#SimpleSearch" TYPE="action"
+  PATH="/SimpleSearch" SHAPE="32,4945,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="SearchPage" ID="SearchPage" TYPE="forward"
+   PATH="/jsp/common/iofmCommonSearchTemplate.jsp" TARGET="page3"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page3"
+  TITLE="iofmCommonSearchTemplate.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/iofmCommonSearchTemplate.jsp" SHAPE="240,4962,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action42"
+  TITLE="AdvancedSearchForm" ID="#AdvancedSearch" TYPE="action"
+  PATH="/AdvancedSearch" SHAPE="32,5537,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/common/iofmCommonSearchTemplate.jsp" TARGET="page3"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="search" ID="search" TYPE="forward"
+   PATH="/jsp/search/OIAdvancedSearchResult.jsp" TARGET="page4"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action43"
+  TITLE="PostingForm" ID="#PostingMaintain" TYPE="action"
+  PATH="/PostingMaintain" SHAPE="32,3761,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="UserPage" ID="UserPage" TYPE="forward"
+   PATH="/jsp/forum/OIForumTemplate.jsp" TARGET="page17"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="PopupPage" ID="PopupPage" TYPE="forward"
+   PATH="/jsp/forum/OIForumPopupTemplate.jsp" TARGET="page0"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page4"
+  TITLE="OIAdvancedSearchResult.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/search/OIAdvancedSearchResult.jsp" SHAPE="240,5537,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/AdvancedSearch.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/AdvancedSearch.do" TARGET="action42"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action44"
+  TITLE="RankingForm" ID="#Ranking" TYPE="action" PATH="/Ranking" SHAPE="256,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="RankPage" ID="RankPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action45"
+  TITLE="ModerationForm" ID="#ThreadPostMod" TYPE="action"
+  PATH="/ThreadPostMod" SHAPE="256,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action46"
+  TITLE="AuditTrailForm" ID="#AuditTrail" TYPE="action"
+  PATH="/AuditTrail" SHAPE="32,6129,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AuditTrail" ID="AuditTrail" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action47"
+  TITLE="AddEmailsForm" ID="#AddEmails" TYPE="action" PATH="/AddEmails" SHAPE="256,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="INPUTPAGE" ID="INPUTPAGE" TYPE="forward"
+   PATH="/jsp/common/OIAddEmailsInput.jsp" TARGET="page6"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward2"
+   TITLE="VERIFYPAGE" ID="VERIFYPAGE" TYPE="forward"
+   PATH="/jsp/common/OIAddEmailsVerify.jsp" TARGET="page8"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page6"
+  TITLE="OIAddEmailsInput.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/OIAddEmailsInput.jsp" SHAPE="464,1361,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/AddEmails.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/AddEmails.do" TARGET="action47"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page8"
+  TITLE="OIAddEmailsVerify.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/common/OIAddEmailsVerify.jsp" SHAPE="672,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/AddEmails.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/AddEmails.do" TARGET="action47"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action48"
+  ID="#publishLink" TYPE="action" PATH="/publishLink" SHAPE="32,1633,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action49"
+  ID="#adminAction" TYPE="action" PATH="/adminAction" SHAPE="256,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action50"
+  TITLE="GroupsForm" ID="#GroupMembers" TYPE="action"
+  PATH="/GroupMembers" SHAPE="240,1649,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="MemberList" ID="MemberList" TYPE="forward"
+   PATH="/jsp/forum/OIGroupMembers.jsp" TARGET="page5"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page5"
+  TITLE="OIGroupMembers.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/forum/OIGroupMembers.jsp" SHAPE="32,1634,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/GroupMembers.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/GroupMembers.do" TARGET="action50"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action51"
+  TITLE="ASMFormHome" ID="#asmHome" TYPE="action" PATH="/asmHome" SHAPE="32,1857,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/asm/ASMWebTemplate.jsp" TARGET="page38"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="printPreview" ID="printPreview" TYPE="forward"
+   PATH="/jsp/asm/ASMPrintPreview.jsp" TARGET="page39"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward2"
+   TITLE="ReportSearch" ID="ReportSearch" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward3"
+   TITLE="PrevRepSearch" ID="PrevRepSearch" TYPE="forward"
+   PATH="/jsp/asm/ASMWebTemplate.jsp" TARGET="page38"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page37"
+  TITLE="ASMHomePage.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/asm/ASMHomePage.jsp" SHAPE="240,2386,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/asmHome.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/asmHome.do" TARGET="action51"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page38"
+  TITLE="ASMWebTemplate.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/asm/ASMWebTemplate.jsp" SHAPE="448,1857,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page39"
+  TITLE="ASMPrintPreview.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/asm/ASMPrintPreview.jsp" SHAPE="448,1969,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/asmHome.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/asmHome.do" TARGET="action51"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action52"
+  TITLE="ASMFormAnnouncement" ID="#ASMAnnouncement" TYPE="action"
+  PATH="/ASMAnnouncement" SHAPE="256,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action53"
+  TITLE="ASMFormAbout" ID="#ASMAbout" TYPE="action" PATH="/ASMAbout" SHAPE="256,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="WebDisplay" ID="WebDisplay" TYPE="forward"
+   PATH="/jsp/asm/ASMWebTemplate.jsp" TARGET="page38"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action54"
+  TITLE="ASMFormLetter" ID="#ASMView" TYPE="action" PATH="/ASMView" SHAPE="272,1249,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populate" ID="populate" TYPE="forward"
+   PATH="/jsp/asm/ASMWebTemplate.jsp" TARGET="page38"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="newOrEditLetter" ID="newOrEditLetter" TYPE="forward"
+   PATH="/jsp/asm/ASMEditLetter.jsp" TARGET="page40"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward2"
+   TITLE="detailLetter" ID="detailLetter" TYPE="forward"
+   PATH="/jsp/asm/ASMUserDetailLetter.jsp" TARGET="page42"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action55"
+  TITLE="ASMFormPrevRep" ID="#asmPrevRep" TYPE="action"
+  PATH="/asmPrevRep" SHAPE="272,2417,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="populateNew" ID="populateNew" TYPE="forward"
+   PATH="/jsp/asm/ASMWebTemplate.jsp" TARGET="page38"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="populateOld" ID="populateOld" TYPE="forward"
+   PATH="/jsp/asm/ASMWebTemplate.jsp" TARGET="page38"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action56"
+  TITLE="ASMFormEditor" ID="#ASMEditor" TYPE="action" PATH="/ASMEditor" SHAPE="272,2417,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="WebDisplay" ID="WebDisplay" TYPE="forward"
+   PATH="/jsp/asm/ASMWebTemplate.jsp" TARGET="page38"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action57"
+  TITLE="ASMFormReplyRedirect" ID="#ASMReplyRedirect" TYPE="action"
+  PATH="/ASMReplyRedirect" SHAPE="272,1345,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page40"
+  TITLE="ASMEditLetter.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/asm/ASMEditLetter.jsp" SHAPE="480,1473,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/ASMView.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/ASMView.do" TARGET="action54"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action58"
+  TITLE="ASMFormReplyRedirectEdit" ID="#ASMReplyRedirectEdit"
+  TYPE="action" PATH="/ASMReplyRedirectEdit" SHAPE="272,913,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="DivisionChange" ID="DivisionChange" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward2"
+   TITLE="Redirect" ID="Redirect" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward3"
+   TITLE="Save" ID="Save" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward4"
+   TITLE="SendRemainder" ID="SendRemainder" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward5"
+   TITLE="ReplyRedirect" ID="ReplyRedirect" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action59"
+  TITLE="ASMFormCommon" ID="#ASMUserDetails" TYPE="action"
+  PATH="/ASMUserDetails" SHAPE="32,1953,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AllUserList" ID="AllUserList" TYPE="forward"
+   PATH="/jsp/asm/admin/ASMUserDetails.jsp" TARGET="page41"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="DivisionUserList" ID="DivisionUserList" TYPE="forward"
+   PATH="/jsp/asm/admin/ASMUserDetails.jsp" TARGET="page41"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward2"
+   TITLE="SeniorManagementUserList" ID="SeniorManagementUserList"
+   TYPE="forward" PATH="/jsp/asm/admin/ASMUserDetails.jsp" TARGET="page41"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page41"
+  TITLE="ASMUserDetails.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/asm/admin/ASMUserDetails.jsp" SHAPE="240,2514,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/ASMUserDetails.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/ASMUserDetails.do" TARGET="action59"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action60"
+  TITLE="ASMFormManagement" ID="#ASMManagement" TYPE="action"
+  PATH="/ASMManagement" SHAPE="272,2513,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="WebDisplay" ID="WebDisplay" TYPE="forward"
+   PATH="/jsp/asm/ASMWebTemplate.jsp" TARGET="page38"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action61"
+  TITLE="ASMFormReport" ID="#ASMReport" TYPE="action" PATH="/ASMReport" SHAPE="288,1377,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="AdminPage" ID="AdminPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="ExportExcel" ID="ExportExcel" TYPE="forward"
+   PATH="/jsp/asm/admin/ASMExcelReport.jsp" TARGET="page43"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward2"
+   TITLE="SearchResult" ID="SearchResult" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page42"
+  TITLE="ASMUserDetailLetter.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/asm/ASMUserDetailLetter.jsp" SHAPE="688,1361,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page43"
+  TITLE="ASMExcelReport.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/asm/admin/ASMExcelReport.jsp" SHAPE="496,1601,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page10"
+  TITLE="login.jsp" TYPE="page" SUBTYPE="jsp" PATH="/login.jsp" SHAPE="864,145,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action62"
+  TITLE="WebRankingForm" ID="#WebRanking" TYPE="action"
+  PATH="/WebRanking" SHAPE="304,1409,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="RankPage" ID="RankPage" TYPE="forward"
+   PATH="/jsp/admin/iofmAdminTemplate.jsp" TARGET="page14"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward1"
+   TITLE="WebRankDetails" ID="WebRankDetails" TYPE="forward"
+   PATH="/jsp/admin/OIAdminWebRankDetails.jsp" TARGET="page46"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page44"
+  TITLE="OIAdminWebRank.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/admin/OIAdminWebRank.jsp" SHAPE="720,1521,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/WebRanking.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/WebRanking.do" TARGET="action62"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="action63"
+  TITLE="oifmThreadsSearch" ID="#oifmThreadsSearch" TYPE="action"
+  PATH="/oifmThreadsSearch" SHAPE="656,3281,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="forward0"
+   TITLE="ListPage" ID="ListPage" TYPE="forward"
+   PATH="/jsp/forum/OIForumTemplate.jsp" TARGET="page17"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page45"
+  TITLE="oifmThreadsSearch.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/forum/oifmThreadsSearch.jsp" SHAPE="864,3393,0,0">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   TITLE="/oifmThreadsSearch.do" TYPE="link" SUBTYPE="confirmed"
+   PATH="/oifmThreadsSearch.do" TARGET="action63"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page46"
+  TITLE="OIAdminWebRankDetails.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/admin/OIAdminWebRankDetails.jsp" SHAPE="928,1409,0,0"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page48"
+  TITLE="OIAdminWebRankExport.jsp" TYPE="page" SUBTYPE="jsp"
+  PATH="/jsp/admin/OIAdminWebRankExport.jsp" SHAPE="720,1633,0,0"/>
+</PROCESS>

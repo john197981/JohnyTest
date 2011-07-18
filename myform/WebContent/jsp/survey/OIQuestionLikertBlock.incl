@@ -1,0 +1,136 @@
+			<%
+				int max = 0;
+				if (objQuestion.getStrAnswer10() != null)
+					max = 10;
+				else if (objQuestion.getStrAnswer9() != null)
+					max = 9;
+				else if (objQuestion.getStrAnswer8() != null)
+					max = 8;
+				else if (objQuestion.getStrAnswer7() != null)
+					max = 7;
+				else if (objQuestion.getStrAnswer6() != null)
+					max = 6;
+				else if (objQuestion.getStrAnswer5() != null)
+					max = 5;
+				else if (objQuestion.getStrAnswer4() != null)
+					max = 4;
+				else if (objQuestion.getStrAnswer3() != null)
+					max = 3;
+			%>
+						
+			<logic:equal name="objQuestion" property="strUseSameLikert" value="0">
+				<%
+				if(likertCount>0)
+				{%>
+					</table>
+					</td></tr>
+				<%
+				likertCount=0;
+				}
+				%>
+			<tr  valign="absmiddle" bgcolor = white> 
+			<td class="body_extract_text" colspan=2>
+			<table width="550"  border="1" cellpadding="3" cellspacing="0" >
+			<tr >
+			<td class="body_extract_text" align="left">No.</td>
+			<td class="body_extract_text" align="left" >
+			Question
+			</td>
+				<td class="body_extract_text" align="left" >
+				
+				<bean:write name="objQuestion" property="strAnswer1" />&nbsp;
+				</td>
+			
+			
+				<td class="body_extract_text" >
+				<bean:write name="objQuestion" property="strAnswer2" />&nbsp;</td>
+			
+			<% if (max >= 3){ %>
+				<td class="body_extract_text" align="left" >
+				<bean:write name="objQuestion" property="strAnswer3" />&nbsp;</td>
+			<% } %>
+			<% if (max >= 4){ %>
+				<td class="body_extract_text" align="left">
+				<bean:write name="objQuestion" property="strAnswer4" />&nbsp;</td>
+			<% } %>
+			<% if (max >= 5){ %>
+				<td class="body_extract_text" align="left">
+				<bean:write name="objQuestion" property="strAnswer5" />&nbsp;</td>
+			<% } %>
+			<% if (max >= 6){ %>
+				<td class="body_extract_text" align="left">
+				<bean:write name="objQuestion" property="strAnswer6" />&nbsp;</td>
+			<% } %>
+			<% if (max >= 7){ %>
+				<td class="body_extract_text" align="left">
+				<bean:write name="objQuestion" property="strAnswer7" />&nbsp;</td>
+			<% } %>
+			<% if (max >= 8){ %>
+				<td class="body_extract_text" align="left">
+				<bean:write name="objQuestion" property="strAnswer8" />&nbsp;</td>
+			<% } %>
+			<% if (max >= 9){ %>
+				<td class="body_extract_text" align="left">
+				<bean:write name="objQuestion" property="strAnswer9" />&nbsp;</td>
+			<% } %>
+			<% if (max >= 10){ %>
+				<td class="body_extract_text" align="left">
+				<bean:write name="objQuestion" property="strAnswer10" />&nbsp;</td>
+			<% } %>
+			</tr>
+
+			</logic:equal>
+			<tr >
+			<td class="body_extract_text" align="left"><B><%= ++qstCnt %>.</B></td>
+			<td class="body_extract_text" align="left" >
+			
+				<bean:write name="objQuestion" property="strQuestion" />&nbsp;
+				<logic:equal name="objQuestion" property="strOptional" value="M">
+				<B><font color="#FF0000">*</font></B>
+				</logic:equal>
+			
+			</td>
+			
+				<td class="body_extract_text" align="left" >
+				
+				<html:radio property="strRbResponse" name="objResponse" value="R1" indexed="true"  styleId="<%= qstCnt+"R1" %>"  />
+				</td>
+			
+			
+				<td class="body_extract_text" ><html:radio property="strRbResponse" name="objResponse" value="R2" indexed="true"  styleId="<%= qstCnt+"R2" %>"  />
+				</td>
+			
+			<% if (max >= 3){ %>
+				<td class="body_extract_text" align="left" ><html:radio property="strRbResponse" name="objResponse" value="R3" indexed="true"  styleId="<%= qstCnt+"R3" %>"  />
+				</td>
+			<% } %>
+			<% if (max >= 4){ %>
+				<td class="body_extract_text" align="left"><html:radio property="strRbResponse" name="objResponse" value="R4" indexed="true"  styleId="<%= qstCnt+"R4" %>"  />
+				</td>
+			<% } %>
+			<% if (max >= 5){ %>
+				<td class="body_extract_text" align="left"><html:radio property="strRbResponse" name="objResponse" value="R5" indexed="true"  styleId="<%= qstCnt+"R5" %>"  />
+				</td>
+			<% } %>
+			<% if (max >= 6){ %>
+				<td class="body_extract_text" align="left"><html:radio property="strRbResponse" name="objResponse" value="R6" indexed="true"  styleId="<%= qstCnt+"R6" %>"  />
+				</td>
+			<% } %>
+			<% if (max >= 7){ %>
+				<td class="body_extract_text" align="left"><html:radio property="strRbResponse" name="objResponse" value="R7" indexed="true"  styleId="<%= qstCnt+"R7" %>"  />
+				</td>
+			<% } %>
+			<% if (max >= 8){ %>
+				<td class="body_extract_text" align="left"><html:radio property="strRbResponse" name="objResponse" value="R8" indexed="true"  styleId="<%= qstCnt+"R8" %>"  />
+				</td>
+			<% } %>
+			<% if (max >= 9){ %>
+				<td class="body_extract_text" align="left"><html:radio property="strRbResponse" name="objResponse" value="R9" indexed="true"  styleId="<%= qstCnt+"R9" %>"  />
+				</td>
+			<% } %>
+			<% if (max >= 10){ %>
+				<td class="body_extract_text" align="left"><html:radio property="strRbResponse" name="objResponse" value="R10" indexed="true"  styleId="<%= qstCnt+"R10" %>"  />
+				</td>
+			<% } %>
+			</tr>
+			

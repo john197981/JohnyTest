@@ -1,0 +1,33 @@
+.TESTcpYearNavigation { FONT-WEIGHT: bold; COLOR: #ffffff; BACKGROUND-COLOR: #6677dd; TEXT-ALIGN: center; TEXT-DECORATION: none }
+.TESTcpMonthNavigation { FONT-WEIGHT: bold; COLOR: #ffffff; BACKGROUND-COLOR: #6677dd; TEXT-ALIGN: center; TEXT-DECORATION: none }
+.TESTcpDayColumnHeader { FONT-SIZE: 8pt; FONT-FAMILY: arial }
+.TESTcpYearNavigation { FONT-SIZE: 8pt; FONT-FAMILY: arial }
+.TESTcpMonthNavigation { FONT-SIZE: 8pt; FONT-FAMILY: arial }
+.TESTcpCurrentMonthDate { FONT-SIZE: 10pt; FONT-FAMILY: arial }
+.TESTcpCurrentMonthDateDisabled { FONT-SIZE: 8pt; FONT-FAMILY: arial }
+.TESTcpOtherMonthDate { FONT-SIZE: 8pt; FONT-FAMILY: arial }
+.TESTcpOtherMonthDateDisabled { FONT-SIZE: 8pt; FONT-FAMILY: arial }
+.TESTcpCurrentDate { FONT-SIZE: 8pt; FONT-FAMILY: arial }
+.TESTcpCurrentDateDisabled { FONT-SIZE: 8pt; FONT-FAMILY: arial }
+.TESTcpTodayText { FONT-SIZE: 8pt; FONT-FAMILY: arial }
+.TESTcpTodayTextDisabled { FONT-SIZE: 8pt; FONT-FAMILY: arial }
+.TESTcpText { FONT-SIZE: 8pt; FONT-FAMILY: arial }
+TD.TESTcpDayColumnHeader { BORDER-RIGHT: #6677dd 0px solid; BORDER-TOP: #6677dd 0px solid; BORDER-LEFT: #6677dd 0px solid; BORDER-BOTTOM: #6677dd 1px solid; TEXT-ALIGN: right }
+.TESTcpCurrentMonthDate { TEXT-ALIGN: right; TEXT-DECORATION: none }
+.TESTcpOtherMonthDate { TEXT-ALIGN: right; TEXT-DECORATION: none }
+.TESTcpCurrentDate { TEXT-ALIGN: right; TEXT-DECORATION: none }
+.TESTcpCurrentMonthDateDisabled { COLOR: #d0d0d0; TEXT-ALIGN: right; TEXT-DECORATION: line-through }
+.TESTcpOtherMonthDateDisabled { COLOR: #d0d0d0; TEXT-ALIGN: right; TEXT-DECORATION: line-through }
+.TESTcpCurrentDateDisabled { COLOR: #d0d0d0; TEXT-ALIGN: right; TEXT-DECORATION: line-through }
+.TESTcpCurrentMonthDate { FONT-WEIGHT: bold; COLOR: #6677dd }
+.TESTcpCurrentDate { FONT-WEIGHT: bold; COLOR: #ffffff }
+.TESTcpOtherMonthDate { COLOR: #808080 }
+TD.TESTcpCurrentDate { BORDER-RIGHT: #000000 thin solid; BORDER-TOP: #000000 thin solid; BORDER-LEFT: #000000 thin solid; COLOR: #ffffff; BORDER-BOTTOM: #000000 thin solid; BACKGROUND-COLOR: #6677dd }
+TD.TESTcpCurrentDateDisabled { BORDER-RIGHT: #ffaaaa thin solid; BORDER-TOP: #ffaaaa thin solid; BORDER-LEFT: #ffaaaa thin solid; BORDER-BOTTOM: #ffaaaa thin solid }
+TD.TESTcpTodayText { BORDER-RIGHT: #6677dd 0px solid; BORDER-TOP: #6677dd 1px solid; BORDER-LEFT: #6677dd 0px solid; BORDER-BOTTOM: #6677dd 0px solid }
+TD.TESTcpTodayTextDisabled { BORDER-RIGHT: #6677dd 0px solid; BORDER-TOP: #6677dd 1px solid; BORDER-LEFT: #6677dd 0px solid; BORDER-BOTTOM: #6677dd 0px solid }
+A.TESTcpTodayText { HEIGHT: 20px }
+SPAN.TESTcpTodayTextDisabled { HEIGHT: 20px }
+A.TESTcpTodayText { FONT-WEIGHT: bold; COLOR: #6677dd }
+SPAN.TESTcpTodayTextDisabled { COLOR: #d0d0d0 }
+.TESTcpBorder { BORDER-RIGHT: #6677dd thin solid; BORDER-TOP: #6677dd thin solid; BORDER-LEFT: #6677dd thin solid; BORDER-BOTTOM: #6677dd thin solid }

@@ -1,0 +1,89 @@
+BODY {font-family: verdana,geneva,arial,sans-serif}
+P {font-size: 0.8em}
+.it {font-style: italic}
+H1 {font-size: 1.2em}
+H2 {font-size: 1em}
+H3 {font-size: 0.8em}
+H4 {font-size: 0.8em; font-style: italic}
+UL,OL {font-size: 0.8em}
+LI {margin-top: 0.5em}
+HR { color: #000000}
+
+BODY, TABLE
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+
+SPAN.RVTS1
+{
+ font-family: 'Arial Unicode MS';
+}
+
+SPAN.RVTS2
+{
+ font-size: 10pt;
+ font-family: 'Verdana';
+ color: #000000;
+}
+
+SPAN.RVTS3
+{
+ font-size: 16pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #C15634;
+}
+
+SPAN.RVTS4
+{
+ font-size: 12pt;
+ font-family: 'Verdana';
+ font-style: italic;
+ font-weight: bold;
+ color: #000000;
+}
+
+SPAN.RVTS5
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #000000;
+}
+SPAN.RVTS6
+{
+ font-size: 10pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #000000;
+}
+SPAN.RVTS7
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #000000;
+}
+/*----------Para Styles----------*/
+P,UL,OL /* Left */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+
+.RVPS1
+{
+}
+
+.RVPS2
+{
+ text-align: center;
+}
+--></STYLE>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.5.0_22">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v6.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/activation.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/antlr.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/commons-digester.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/commons-fileupload.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/commons-lang.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/commons-validator.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/jakarta-oro.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/jstl.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/jta-spec1_0_1.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/log4j-1.2.9.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/mail.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/poi.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/RegistryService.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/servlet.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/standard.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/struts.jar"/>
+	<classpathentry kind="lib" path="D:/DevelopmentLib/oisourcelib/struts-legacy.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

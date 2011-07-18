@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<data-sources/>
+	<form-beans>  
+		<form-bean name="loginForm" type="com.oifm.login.OIFormLogin"/>
+		<form-bean name="SimpleSearchForm" type="com.oifm.search.OIFormSimpleSearch" />
+		<form-bean name="ConsultCategoryForm" type="com.oifm.consultation.admin.OIFormConsultCategory"/>
+		<form-bean name="ConsultListingForm" type="com.oifm.consultation.admin.OIFormConsultListing"/>
+		<form-bean name="ConsultPageForm" type="com.oifm.consultation.admin.OIFormConsultPaper"/>
+		<form-bean name="ConsultQuestionForm" type="com.oifm.consultation.admin.OIFormConsultQuestion"/>
+		<form-bean name="ConsultPublishForm" type="com.oifm.consultation.admin.OIFormConsultPublish"/>
+		<form-bean name="ConsultListingFormWeb" type="com.oifm.consultation.OIFormConsultListingWeb"/>
+		<form-bean name="ConsultPastPaperForm" type="com.oifm.consultation.OIFormConsultPastPaper"/>
+		<form-bean name="ConsultPresentPaperForm" type="com.oifm.consultation.OIFormConsultPresentPaper"/>
+		<form-bean name="MemberProfileForm" type="com.oifm.useradmin.OIFormMemberProfile"/>
+		<form-bean name="AlertFriendForm" type="com.oifm.common.OIFormAlertFriends"/>
+		<form-bean name="ConfigurationForm" type="com.oifm.common.OIFormConfiguration"/>
+		<form-bean name="ForumCategoryForm" type="com.oifm.forum.admin.OIFormForumCategory"/>
+		<form-bean name="ForumBoardForm" type="com.oifm.forum.admin.OIFormForumBoard"/>
+		<form-bean name="ForumTopicForm" type="com.oifm.forum.admin.OIFormForumTopic"/>
+		<form-bean name="ForumListing" type="com.oifm.forum.admin.OIFormForumListing"/>
+		<form-bean name="AdvancedSearchForm" type="com.oifm.search.OIFormAdvancedSearch" />		
+		<!-- 14 Jan 2009, By Aik Mun, Move Thread -->
+		<form-bean name="ForumMoveThreadForm" type="com.oifm.forum.admin.OIFormForumMoveThread"/>
+
+				
+		<form-bean name="SurveyForm" type="com.oifm.survey.OIFormSurvey"/>
+		<form-bean name="SectionForm" type="com.oifm.survey.OIFormSection"/>
+		<form-bean name="QuestionForm" type="com.oifm.survey.OIFormQuestion"/>
+		<form-bean name="ResponseForm" type="com.oifm.survey.OIFormResponse"/>
+		<form-bean name="TempUserForm" type="com.oifm.survey.admin.OIFormTempUser"/>
+		<form-bean name="UserSurveyForm" type="com.oifm.survey.OIFormSurveySection"/>
+		<form-bean name="UserResponseForm" type="com.oifm.survey.OIFormQuestionResponse"/>
+		<form-bean name="ResultForm" type="com.oifm.survey.OIFormResult"/>
+
+		<form-bean name="SendMailForm" type="com.oifm.common.OIFormSendMail"/> 
+		<form-bean name="SelectForm" type="com.oifm.useradmin.OIFormSearch"/>  
+		<form-bean name="PollForm" type="com.oifm.poll.OIFormPoll"/>  
+		<form-bean name="HomeForm" type="com.oifm.home.OIFormHome"/>  
+		<form-bean name="UserProfileForm" type="com.oifm.useradmin.admin.OIFormAdminUserProfile"/>  
+		<form-bean name="ModerationForm" type="com.oifm.forum.admin.OIFormModeration"/>  
+		<form-bean name="ThreadForm" type="com.oifm.forum.OIFormThread"/>  
+		<form-bean name="PostingForm" type="com.oifm.forum.OIFormPosting"/>  
+		<form-bean name="ASMFormLetter" type="com.oifm.asm.ASMFormLetter"/>
+		<form-bean name="oifmThreadsSearch" type="com.oifm.forum.OIFormThreadsSearch"/>
+		
+		<form-bean name="RolesForm" type="com.oifm.useradmin.OIFormRoles"/>
+		<form-bean name="GroupsForm" type="com.oifm.useradmin.OIFormGroups"/>
+		<form-bean name="CodeMasterForm" type="com.oifm.codemaster.OIFormCodeMaster"/>
+		<form-bean name="RankingForm" type="com.oifm.useradmin.OIFormRanking"/>
+		<form-bean name="AuditTrailForm" type="com.oifm.useradmin.OIFormAuditTrail"/>
+		<form-bean name="AddEmailsForm" type="com.oifm.common.OIFormAddEmails"/>
+		<form-bean name="WebRankingForm" type="com.oifm.useradmin.OIFormWebRanking"/>
+ 
+		<!-- Form Bean configeration for ASM module End-->
+
+		<form-bean name="ASMFormHome" type="com.oifm.asm.ASMFormHomePage"/>
+		<form-bean name="ASMFormAnnouncement" type="com.oifm.asm.ASMFormAnnouncement"/>
+		<form-bean name="ASMFormAbout" type="com.oifm.asm.ASMFormAbout" />
+		<form-bean name="ASMFormEditor" type="com.oifm.asm.ASMFormEditor" />
+		<form-bean name="ASMFormPrevRep" type="com.oifm.asm.ASMFormPrevRep"/>
+		<form-bean name="ASMFormReplyRedirect" type="com.oifm.asm.ASMFormReplyRedirect"/>
+		<form-bean name="ASMFormReplyRedirectEdit" type="com.oifm.asm.ASMFormReplyRedirectEdit"/>
+		<form-bean name="ASMFormCommon" type="com.oifm.asm.ASMFormCommon"/>	
+		<form-bean name="ASMFormManagement" type="com.oifm.asm.ASMFormManagement" />
+		<form-bean name="ASMFormReport" type="com.oifm.asm.ASMFormReport" />
+		
+		<!--  Form Bean Configuration for ASMCategory  Added By Rakesh-->	
+		<form-bean name="ASMCategoryForm" type="com.oifm.common.OIFormASMCategory" />	
+		
+		<!--  Categories of Letter  - Added by Nimitta -->
+		<form-bean name="ASMFormCategoriesOFLetters" type="com.oifm.asm.ASMFormCategoriesOFLetters" />
+		
+		<!--  Categories of Editor's Notes  - Added by Nimitta -->
+		<form-bean name="ASMFormCategoriesOfEditorNotes" type="com.oifm.asm.ASMFormCategoriesOfEditorNotes" />
+		
+		
+		<!-- Form Bean configeration for ASM module End-->
+		<form-bean name="OIFormSurveyPaperEmailEdit" type="com.oifm.common.OIFormSurveyPaperEmailEdit"/>
+		
+		<!-- Form Bean configration for Blog module End-->
+		<form-bean name="BlogHomeForm" type="com.oifm.blog.OIBlogHomeForm"/>
+		<form-bean name="BlogAdminForm" type="com.oifm.blog.OIBlogAdminForm"/>		
+		<form-bean name="CreateBlogForm" type="com.oifm.blog.OICreateBlogForm"/>
+		<form-bean name="BlogAuthorListForm" type="com.oifm.blog.OIBlogAuthorListForm"/>
+		<form-bean name="OIBlogAdminEntriesForm" type="com.oifm.blog.OIBlogAdminEntriesForm"/>
+		<form-bean name="OIBlogAdminCreateEntryForm" type="com.oifm.blog.OIBlogAdminCreateEntryForm"/>
+		<form-bean name="OIBlogAdminCategoryForm" type="com.oifm.blog.OIBlogAdminCategoryForm"/>
+		<form-bean name="OIBlogAdminRecentEntriesForm" type="com.oifm.blog.OIBlogAdminRecentEntriesForm"/>
+		<form-bean name="BlogArchivesForm" type="com.oifm.blog.OIBlogArchivesForm"/>
+		<form-bean name="OIFormIndividualBlogHome" type="com.oifm.blog.OIFormIndividualBlog"/>
+		<form-bean name="OIFormIndividualBlogEntry" type="com.oifm.blog.OIFormIndividualBlog"/>
+		<form-bean name="OIFormIndividualBlogAboutUs" type="com.oifm.blog.OIFormIndividualBlog"/>
+		<form-bean name="OIFormBlogTag" type="com.oifm.blog.OIFormBlogTag"/>
+		
+		
+	</form-beans>
+
+	<global-exceptions/>
+	<global-forwards>
+		<forward name="goHome" path="/jsp/common/iofm_Home.jsp"/>
+		<forward name="goAdmin" path="/jsp/admin/iofm_AdminFrameSet.jsp"/>
+		<forward name="goConsultation" path="/jsp/consultation/iofm_ConsultationPaperList.jsp"/>
+		<forward name="goSurvey" path="/jsp/survey/iofm_SurveyList.jsp"/>
+		<forward name="goForum" path="/jsp/forum/iofm_Discussion.jsp"/>
+		<forward name="error" path="/jsp/common/iofmError.jsp"/>
+		
+	</global-forwards> 
+	
+	<action-mappings>
+		
+		<action path  = "/error" type  = "org.apache.struts.actions.ForwardAction"
+			parameter = "/jsp/common/iofmError.jsp"
+	    />
+		
+		<action name="loginForm" path="/loginAction" scope="request" type="com.oifm.login.OIActionLogin">
+			<forward name="success" path="/home.do"/>
+			<!--<forward name="logout" path="/userlogin.jsp"/> -->
+			<forward name="logout" path="/login.jsp"/>
+		</action>
+		
+		<action name="SimpleSearchForm" path="/SimpleSearch" scope="request" type="com.oifm.search.OIActionSimpleSearch">
+			<forward name="SearchPage" path="/jsp/common/iofmCommonSearchTemplate.jsp" />
+		</action>
+
+		<action name="ConsultListingForm" path="/consultListingAction" scope="request" type="com.oifm.consultation.admin.OIActionConsultListing">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+
+		<action name="ConsultCategoryForm" path="/consultCreateCategoryAction" scope="request" type="com.oifm.consultation.admin.OIActionConsultCreateCategory">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		<action name="ConsultCategoryForm" path="/consultViewModifyCategoryAction" scope="request" type="com.oifm.consultation.admin.OIActionConsultViewUpdateCategory">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		<action name="ConsultPageForm" path="/consultCreatePageAction" scope="request" type="com.oifm.consultation.admin.OIActionConsultCreatePaper">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		<action name="ConsultPageForm" path="/consultViewModifyPageAction" scope="request" type="com.oifm.consultation.admin.OIActionConsultViewModifyPaper">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="RespondentsList" path="/jsp/consultation/iofmConsultRespondentsList.jsp"/>
+			<forward name="RespondentsListExport" path="/jsp/consultation/iofmConsultRespondentsListExport.jsp"/>
+			<forward name="ConsultSummary" path="/jsp/consultation/iofmConsultDemoSummary.jsp"/>
+			<forward name="ConsultSummaryExport" path="/jsp/consultation/iofmConsultDemoSummaryExport.jsp"/>
+			<forward name="ConsultDetail" path="/jsp/consultation/iofmConsultDetailReport.jsp"/>
+			<forward name="ConsultDetailExport" path="/jsp/consultation/iofmConsultDetailReportExport.jsp"/>
+			<forward name="OpenEndQuestion" path="/jsp/consultation/iofmConsultQuestionReport.jsp"/>
+		</action>
+		<action name="ConsultQuestionForm" path="/consultCreateQuestionAction" scope="request" type="com.oifm.consultation.admin.OIActionConsultCreateQuestion">
+			<forward name="populate" path="/jsp/admin/iofmConsultQuestion.jsp"/>
+		</action>
+		<action name="ConsultQuestionForm" path="/consultViewModifyQuestionAction" scope="request" type="com.oifm.consultation.admin.OIActionConsultViewModifyQuestion">
+			<forward name="populate" path="/jsp/admin/iofmConsultQuestion.jsp"/>
+		</action>
+		<action name="ConsultPublishForm" path="/consultPaperPublishAction" scope="request" type="com.oifm.consultation.admin.OIActionConsultPublish">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="export" path="/jsp/admin/iofmConsultPaperPublishExport.jsp"/>
+		</action>
+		<action name="ConsultListingFormWeb" path="/webConsultListingAction" scope="request" type="com.oifm.consultation.OIActionConsultListing">
+			<forward name="populate" path="/jsp/consultation/iofmConsultTemplate.jsp"/>
+		</action>
+		<action name="ConsultPastPaperForm" path="/webConsultPastPaperAction" scope="request" type="com.oifm.consultation.OIActionConsultPastPaper">
+			<forward name="populate" path="/jsp/consultation/iofmConsultTemplate.jsp"/>
+			<forward name="print" path="/jsp/consultation/iofmConsultationPaperClosedPrint.jsp"/>
+		</action>
+		<action name="ConsultPresentPaperForm" path="/webConsultOpenPaperAction" scope="request" type="com.oifm.consultation.OIActionConsultDetail">
+			<forward name="populate" path="/jsp/consultation/iofmConsultTemplate.jsp"/>
+			<forward name="print" path="/jsp/consultation/iofmConsultationPaperOpenPrint.jsp"/>
+		</action>
+		<action name="MemberProfileForm" path="/MemberProfileAction" scope="request" type="com.oifm.useradmin.OIActionMemberProfile">
+			<forward name="populate" path="/jsp/profile/iofmProfileViewPublic.jsp"/>
+		</action>
+		<action name="AlertFriendForm" path="/AlertFriendAction" scope="request" type="com.oifm.common.OIActionAlertFriends">
+			<forward name="populate" path="/jsp/common/iofmCommonWebTemplate.jsp"/>
+		</action>
+		<action path="/adminAction" scope="request" type="com.oifm.common.OIActionAdmin">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+
+
+		<action name="SurveyForm" path="/SurveyAdmin" scope="request" type="com.oifm.survey.admin.OIActionSurvey">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="ExportHtmlPage" path="/jsp/admin/iofmExportHtml.jsp"/>
+			<forward name="SurveyResultRespondents" path="/jsp/survey/OISurveyResultRespondents.jsp"/>
+			<forward name="ExportResultRespondents" path="/jsp/survey/OISurveyResultRespondentsExport.jsp"/>
+			<forward name="SurveyResultSummary" path="/jsp/survey/OISurveyResultSummary.jsp"/>
+			<forward name="ExportResultSummary" path="/jsp/survey/OISurveyResultSummaryExport.jsp"/>
+			<forward name="SurveyResultQuestion" path="/jsp/survey/OISurveyResultQuestion.jsp"/>
+			<forward name="ExportResultQuestion" path="/jsp/survey/OIExportResultQuestion.jsp"/>
+			<forward name="OpenEndQuestion" path="/jsp/survey/OIOpenEndQuestion.jsp"/>
+		</action>
+
+		<action name="SectionForm" path="/SurveySection" scope="request" type="com.oifm.survey.admin.OIActionSection">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		
+		<action name="QuestionForm" path="/SurveyQuestion" scope="request" type="com.oifm.survey.admin.OIActionQuestion">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="EditPage" path="/jsp/survey/admin/OIQuestionEdit.jsp"/>
+		</action>
+		
+		<!-- Survey Result type selection-->
+		<!-- Added by Edmund-->
+		<action name="ResultForm" path="/SurveyResult" scope="request" type="com.oifm.survey.admin.OIActionResult">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		<!-- Ended by Edmund-->
+		
+		<action name="TempUserForm" path="/SurveyTempUser" scope="request" type="com.oifm.survey.admin.OIActionTempUserAdmin">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+
+		<action name="UserSurveyForm" path="/UserSurvey" scope="request" type="com.oifm.survey.OIActionSurveyUser">
+			<forward name="UserPage" path="/jsp/survey/OISurveyTemplate.jsp"/>
+			<forward name="PreviewPage" path="/jsp/survey/OISurveyPreviewDetails.jsp"/>
+		</action>
+
+		<action name="UserResponseForm" path="/UserSurveyResponse" scope="request" type="com.oifm.survey.OIActionSurveyResponsesUser">
+			<forward name="UserPage" path="/jsp/survey/OISurveyQuestionResponses.jsp"/>
+			<forward name="PrintPreviewPage" path="/jsp/survey/OISurveyPrintPreview.jsp"/>
+		</action>
+
+		<action name="SendMailForm" path="/SendMail" scope="request" type="com.oifm.common.OIActionSendMail">
+			<forward name="SendMail" path="/jsp/admin/iofmAdminTemplate.jsp"/>  
+			<forward name="SurveyList" path="/jsp/common/iofmSurveyList.jsp"/> 
+			<forward name="PaperList" path="/jsp/common/iofmPaperList.jsp"/>  
+			<forward name="AdminMail" path="/jsp/forum/iofmMail.jsp"/>  
+		</action>
+		
+		<action name="SelectForm" path="/SelectUsers" scope="request" type="com.oifm.useradmin.OIActionUserProfileSearch">
+			<forward name="SelectUser" path="/jsp/common/iofmSelectUsers.jsp"/>
+		</action>
+
+		<action name="SelectForm" path="/SelectGroups" scope="request" type="com.oifm.useradmin.OIActionUserProfileSearch">
+			<forward name="SelectGroups" path="/jsp/common/iofmSelectGroups.jsp"/>
+			<forward name="SelectAllGroups" path="/jsp/common/iofmSelectAllGroups.jsp"/>
+		</action>
+
+		<action name="PollForm" path="/Poll" scope="request" type="com.oifm.poll.OIActionPoll">
+			<forward name="PollList" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="print" path="/jsp/poll/iofmPollResult.jsp"/>
+		</action>
+
+ 		<action name="ConfigurationForm" path="/adminConfiguration" scope="request" type="com.oifm.common.OIActionConfiguration">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+
+ 		<action name="ForumListing" path="/adminForumListing" scope="request" type="com.oifm.forum.admin.OIActionForumListing">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		
+		<!-- 14 Jan 2009, By Aik Mun, Move Thread -->
+		<action name="ForumMoveThreadForm" path="/adminForumMoveThreadAction" scope="request" type="com.oifm.forum.admin.OIActionForumMoveThread">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+
+ 		<action name="ForumCategoryForm" path="/adminForumCreateCategoryAction" scope="request" type="com.oifm.forum.admin.OIActionForumCreateCategory">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+  		<action name="ForumCategoryForm" path="/adminForumViewModifyCategoryAction" scope="request" type="com.oifm.forum.admin.OIActionForumViewModifyCategory">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+ 		<action name="ForumBoardForm" path="/adminForumCreateBoardAction" scope="request" type="com.oifm.forum.admin.OIActionForumCreateBoard">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+  		<action name="ForumBoardForm" path="/adminForumViewModifyBoardAction" scope="request" type="com.oifm.forum.admin.OIActionForumViewModifyBoard">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+  		<action name="ForumTopicForm" path="/adminForumCreateTopicAction" scope="request" type="com.oifm.forum.admin.OIActionForumCreateTopic">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+  		<action name="ForumTopicForm" path="/adminForumViewModifyTopicAction" scope="request" type="com.oifm.forum.admin.OIActionForumViewModifyTopic">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+ 		<action path="/WebForumListingAction" scope="request" type="com.oifm.forum.OIActionForumWebListing">
+			<forward name="populate" path="/jsp/forum/OIForumTemplate.jsp"/>
+		</action>
+ 
+		<action name="HomeForm" path="/home" scope="request" type="com.oifm.home.OIActionHome">
+			<forward name="populate" path="/jsp/common/iofm_Home.jsp"/>
+			<forward name="thanks" path="/jsp/common/iofmThanks.jsp"/>
+			<forward name="publish" path="/jsp/poll/iofmPollResult.jsp"/>
+		</action>
+ 
+ 
+		<action name="UserProfileForm" path="/UserProfile" scope="request" type="com.oifm.useradmin.admin.OIActionAdminUserProfile">
+			<forward name="search" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="AdminUserView" path="/jsp/admin/iofmAdminProfileDetail.jsp"/>
+			<forward name="UserView" path="/jsp/admin/iofmAdminUserProfile.jsp"/>
+			
+		</action>
+  
+		<action name="ThreadForm" path="/ThreadList" scope="request" type="com.oifm.forum.OIActionThreadList">
+			<forward name="ThreadList" path="/jsp/forum/OIForumTemplate.jsp"/>
+		</action>
+
+		<action name="ThreadForm" path="/ThreadMaintain" scope="request" type="com.oifm.forum.OIActionThread">
+			<forward name="UserPage" path="/jsp/forum/OIForumTemplate.jsp"/>
+			<forward name="PopupPage" path="/jsp/forum/OIForumPopupTemplate.jsp"/>
+		</action>
+
+		<action name="PostingForm" path="/PostingMaintain" scope="request" type="com.oifm.forum.OIActionPosting">
+			<forward name="UserPage" path="/jsp/forum/OIForumTemplate.jsp"/>
+			<forward name="PopupPage" path="/jsp/forum/OIForumPopupTemplate.jsp"/>
+		</action>
+
+		<action name="ModerationForm" path="/ThreadPostMod" scope="request" type="com.oifm.forum.admin.OIActionModThreadPost">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+
+		<action name="RolesForm" path="/Roles" scope="request" type="com.oifm.useradmin.OIActionRoles">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		
+		<action name="GroupsForm" path="/Groups" scope="request" type="com.oifm.useradmin.OIActionGroups">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		
+		<action name="GroupsForm" path="/GroupMembers" scope="request" type="com.oifm.forum.OIActionGroupMembers">
+			<forward name="MemberList" path="/jsp/forum/OIGroupMembers.jsp"/>
+		</action>
+  
+		<action name="CodeMasterForm" path="/CodeMaster" scope="request" type="com.oifm.codemaster.OIActionCodeMaster">
+			<forward name="CodeMaster" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+  
+		<action name="AdvancedSearchForm" path="/AdvancedSearch" scope="request" type="com.oifm.search.OIActionAdvancedSearch">
+			<forward name="populate" path="/jsp/common/iofmCommonSearchTemplate.jsp" />
+			<forward name="search" path="/jsp/search/OIAdvancedSearchResult.jsp" />
+		</action>
+		
+		<action name="RankingForm" path="/Ranking" scope="request" type="com.oifm.useradmin.OIActionRanking">
+			<forward name="RankPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		
+		<action name="RankingForm" path="/SummaryDetails" scope="request" type="com.oifm.useradmin.OIActionSummaryDetails">
+			<forward name="SummaryDetails" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="SummaryDetails_Excel" path="/jsp/admin/iofmSummaryDetails_Excel.jsp"/>
+		</action>
+
+		
+		<action name="WebRankingForm" path="/WebRanking" scope="request" type="com.oifm.useradmin.OIActionWebRanking">
+			<forward name="RankPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="WebRankDetails" path="/jsp/admin/OIAdminWebRankDetails.jsp"/>			
+		</action>
+		
+		<action name="AuditTrailForm" path="/AuditTrail" scope="request" type="com.oifm.useradmin.OIActionAuditTrail">
+			<forward name="AuditTrail" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		
+		<action name="AddEmailsForm" path="/AddEmails" scope="request" type="com.oifm.common.OIActionAddEmails">
+			<forward name="INPUTPAGE" path="/jsp/common/OIAddEmailsInput.jsp"/>
+			<forward name="VERIFYPAGE" path="/jsp/common/OIAddEmailsVerify.jsp"/>
+		</action>
+  
+  		<action path="/publishLink" scope="request" type="com.oifm.link.OIActionPublish">
+		</action>
+
+		<!-- Action configeration for ASM module start-->
+		<!-- Home Page-->
+		<action  path="/asmHome" scope="request" type="com.oifm.asm.ASMActionHomePage"  name="ASMFormHome" >
+			<forward name="populate" path="/jsp/asm/ASMWebTemplate.jsp"/>
+			<forward name="PrevRepSearch" path="/jsp/asm/ASMWebTemplate.jsp"/>
+			<forward name="printPreview" path="/jsp/asm/ASMPrintPreview.jsp"/>
+			<forward name="ReportSearch" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			
+		</action>
+
+		<!-- Survey / Paper Email Edit-->
+		<action name="OIFormSurveyPaperEmailEdit" path="/OIEmailEdit" scope="request" type="com.oifm.common.OIActionSurveyPaperEmailEdit">
+			<forward name="AdminPage" path="/jsp/common/iofmSurveyPaperEmailEdit.jsp"/>
+		</action>
+
+		<!-- Announcement Admin -->
+		<action name="ASMFormAnnouncement" path="/ASMAnnouncement" scope="request" type="com.oifm.asm.ASMActionAnnouncement">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		
+		<!-- About ASM -->
+		<action name="ASMFormAbout" path="/ASMAbout" scope="request" type="com.oifm.asm.ASMActionAbout">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="WebDisplay" path="/jsp/asm/ASMWebTemplate.jsp"/>
+		</action>
+		
+		<!-- Editor's Note -->
+		<action name="ASMFormEditor" path="/ASMEditor" scope="request" type="com.oifm.asm.ASMActionEditor">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="WebDisplay" path="/jsp/asm/ASMWebTemplate.jsp"/>
+		</action>
+
+
+		<action name="ASMFormLetter" path="/ASMView" scope="request" type="com.oifm.asm.ASMActionView">
+			<forward name="populate" path="/jsp/asm/ASMWebTemplate.jsp"/>
+			<forward name="newOrEditLetter" path="/jsp/asm/ASMEditLetter.jsp"/>
+			<forward name="detailLetter" path="/jsp/asm/ASMUserDetailLetter.jsp"/>
+		</action>
+
+		<!-- Previous Replies -->
+		<action  path="/asmPrevRep" scope="request" type="com.oifm.asm.ASMActionPrevRep"  name="ASMFormPrevRep" >
+			<forward name="populateNew" path="/jsp/asm/ASMWebTemplate.jsp"/>
+			<forward name="populateOld" path="/jsp/asm/ASMWebTemplate.jsp"/>
+		</action>
+		
+		<!-- Reply/Redirect -->
+		<action name="ASMFormReplyRedirect" path="/ASMReplyRedirect" scope="request" type="com.oifm.asm.ASMActionReplyRedirect">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+
+		<!-- Reply/Redirect Edit-->
+		<action name="ASMFormReplyRedirectEdit" path="/ASMReplyRedirectEdit" scope="request" type="com.oifm.asm.ASMActionReplyRedirectEdit">
+			<forward name="ReplyRedirect" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="Save" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="DivisionChange" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="Redirect" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="SendRemainder" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			</action>
+
+		<!-- Reply/Redirect Edit-->
+		<action name="ASMFormCommon" path="/ASMUserDetails" scope="request" type="com.oifm.asm.ASMActionUserDetails">
+			<forward name="DivisionUserList" path="/jsp/asm/admin/ASMUserDetails.jsp"/>
+			<forward name="AllUserList" path="/jsp/asm/admin/ASMUserDetails.jsp"/>
+			<forward name="SeniorManagementUserList" path="/jsp/asm/admin/ASMUserDetails.jsp"/>
+		</action>
+		
+		<!-- Senior Management -->
+		<action name="ASMFormManagement" path="/ASMManagement" scope="request" type="com.oifm.asm.ASMActionManagement">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="WebDisplay" path="/jsp/asm/ASMWebTemplate.jsp"/>
+		</action>
+
+		<!-- Report-->
+		<action name="ASMFormReport" path="/ASMReport" scope="request" type="com.oifm.asm.ASMActionReport">
+			<forward name="AdminPage" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="SearchResult" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+			<forward name="ExportExcel" path="/jsp/asm/admin/ASMExcelReport.jsp"/>
+		</action>
+		
+		<!--  Categories of Letter  - Added by Nimitta -->
+		<action name="ASMFormCategoriesOFLetters" path="/ASMActionCategoriesOfLetter" scope="request" type="com.oifm.asm.ASMActionCategoriesOfLetter">
+			<forward name="UserPage" path="/jsp/asm/ASMWebTemplate.jsp"/>
+			<forward name="SearchResult" path="/jsp/asm/ASMWebTemplate.jsp"/>
+			<forward name="ADMIN" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+            <forward name="Adminsearch" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		
+		<!--  Categories of Editor's Notes  - Added by Nimitta -->
+		<action name="ASMFormCategoriesOfEditorNotes" path="/ASMCategoriesOfEditorNotes" scope="request" type="com.oifm.asm.ASMActionCategoriesOfEditorNotes">
+			<forward name="UserPage" path="/jsp/asm/ASMWebTemplate.jsp"/>
+			<forward name="search" path="/jsp/asm/ASMWebTemplate.jsp"/>
+			<forward name="ADMIN" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+            <forward name="Adminsearch" path="/jsp/admin/iofmAdminTemplate.jsp"/>	
+		</action>
+		
+
+		<!-- Action configeration for ASM module End-->
+		<action name="oifmThreadsSearch" path="/oifmThreadsSearch" scope="request" type="com.oifm.forum.OIActionThreadsSearch">
+			<forward name="ListPage" path="/jsp/forum/OIForumTemplate.jsp"/>
+		</action>
+		
+		<action name="BlogHomeForm" path="/BlogHome" scope="request" type="com.oifm.blog.OIActionBlog">
+			<forward name="BlogModuleHomePage" path="/jsp/blog/OIBlogTemplate.jsp"/>
+		</action>
+		
+		<action name="BlogAdminForm" path="/BlogAdmin" scope="request" type="com.oifm.blog.OIBlogAdminAction">
+			<forward name="AdminPage" path="/jsp/blog/BlogAdminTemplate.jsp"/>
+		</action>
+		
+		<action name="CreateBlogForm" path="/CreateBlog" scope="session" type="com.oifm.blog.OICreateBlogAction">
+			<forward name="AdminPage" path="/jsp/blog/BlogAdminTemplate.jsp"/>
+		</action>
+		
+		<action name="BlogAuthorListForm" path="/BlogAuthorList" scope="session" type="com.oifm.blog.OIBlogAuthorListAction">
+			<forward name="AdminPage" path="/jsp/blog/BlogAdminTemplate.jsp"/>
+			<forward name="AuthorList" path="/jsp/blog/AuthorList.jsp"/>
+		</action>
+		
+		<!--  Entries Page in Blog Admin --> 	
+		<!--  modify by edmund -->	
+		<action name="OIBlogAdminEntriesForm" path="/BlogAdminEntries" scope="request" type="com.oifm.blog.OIActionBlogAdminEntries">
+			<forward name="BlogAdminEntry" path="/jsp/blog/OIBlogTemplate.jsp"/>
+			<forward name="ManageAdminEntry" path="/jsp/blog/BlogAdminTemplate.jsp"/>
+			<forward name="ManageCommentEntry" path="/jsp/blog/BlogAdminTemplate.jsp"/>
+		</action>
+
+		<!--  Create New Entry in Blog Admin -->
+		<action name="OIBlogAdminCreateEntryForm" path="/BlogAdminNewEntry" scope="request" type="com.oifm.blog.OIActionBlogAdminCreateEntry">
+			<forward name="BlogAdminNewEntry" path="/jsp/blog/OIBlogTemplate.jsp"/>
+			<forward name="entries" path="/BlogAdminEntries.do?hiddenAction=BlogAdminEntries"/>
+			<forward name="BlogTags" path="/jsp/blog/BlogAdminAddTags.jsp"/>
+		</action>
+
+		<!--  Create Category in Blog Admin -->
+		<action name="OIBlogAdminCategoryForm" path="/adminCategoryAction" scope="request" type="com.oifm.blog.OIActionBlogAdminCategory">
+			<forward name="success" path="/jsp/blog/OIBlogTemplate.jsp"/>
+		</action>
+		
+		<!--  Recent Entries Page in Blog Admin --> 		
+		<action name="OIBlogAdminRecentEntriesForm" path="/BlogAdminRecentEntries" scope="request" type="com.oifm.blog.OIActionBlogAdminRecentEntries">
+			<forward name="BlogModuleHomePage" path="/jsp/blog/OIBlogTemplate.jsp"/>
+		</action>
+		
+		<action name="BlogArchivesForm" path="/BlogArchives" scope="request" type="com.oifm.blog.OIBlogArchivesAction">
+			<forward name="success" path="/jsp/blog/OIBlogTemplate.jsp"/>
+		</action>
+		
+		
+		<action name="OIFormIndividualBlogHome" path="/IndividualBlogHome" scope="request" type="com.oifm.blog.OIActionIndividualBlogHome">
+			<forward name="BlogTemplate" path="/jsp/blog/OIBlogTemplate.jsp"/>
+		</action>
+		
+		<action name="OIFormIndividualBlogEntry" path="/IndividualBlogEntry" scope="request" type="com.oifm.blog.OIActionIndividualBlogEntry">
+			<forward name="BlogTemplate" path="/jsp/blog/OIBlogTemplate.jsp"/>
+		</action>
+		
+		<action name="OIFormIndividualBlogAboutUs" path="/IndividualBlogAboutUs" scope="request" type="com.oifm.blog.OIActionIndividualBlogAboutUs">
+			<forward name="BlogTemplate" path="/jsp/blog/OIBlogTemplate.jsp"/>
+		</action>
+		
+		<action name="OIFormBlogTag" path="/BlogTags" scope="request" type="com.oifm.blog.OIActionBlogTag">
+			<forward name="BlogTemplate" path="/jsp/blog/OIBlogTemplate.jsp"/>
+			<forward name="BlogEntry" path="/BlogTags.do?hiddenAction=renewTags"/>
+			<forward name="BlogTags" path="/jsp/blog/BlogAdminAddTags.jsp"/>
+		</action>
+		
+		<action name="OIFormBlogTag" path="/AddTags" scope="request" type="com.oifm.common.OIActionAddTag">
+			<forward name="BlogTemplate" path="/jsp/blog/OIBlogTemplate.jsp"/>
+			<forward name="TagEntry" path="/AddTags.do?hiddenAction=renewTags"/>
+			<forward name="AddTags" path="/jsp/common/CommonAddTags.jsp"/>
+		</action>
+		
+		<!--  Added By Rakesh for ASM Categories -->
+  		
+  		<action name="ASMCategoryForm" path="/asmCategoryAction" scope="request" type="com.oifm.common.OIActionASMCategory">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		
+		<action name="ASMCategoryForm" path="/asmCreateCategoryAction" scope="request" type="com.oifm.common.OIActionCreateASMCategory">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+	
+		<action name="ASMCategoryForm" path="/asmViewModifyCategoryAction" scope="request" type="com.oifm.common.OIActionASMCategoryViewUpdate">
+			<forward name="populate" path="/jsp/admin/iofmAdminTemplate.jsp"/>
+		</action>
+		
+	</action-mappings>
+	
+	<controller maxFileSize="10M">
+	</controller>
+
+	<message-resources parameter="OIProperties"  />
+	
+</struts-config>

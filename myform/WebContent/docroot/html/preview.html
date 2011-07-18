@@ -1,0 +1,16 @@
+<HTML>
+<HEAD>
+<TITLE> My Say Preview Window </TITLE>
+</HEAD>
+<BODY>
+	<script>
+		var str = opener.document.forms[3].previewDescription.value;
+		//var str = opener.document.my_form.my_textarea.value;
+		while (str.indexOf("\n")>-1)
+		{
+			str = str.replace(/\n/,"<br>");
+		}
+		document.write(str);
+	</script>
+</BODY>
+</HTML>

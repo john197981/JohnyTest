@@ -1,0 +1,172 @@
+			<%
+				int max = 0;
+				if (questionListing.getAnswer5() != null)
+					max = 5;
+				else if (questionListing.getAnswer4() != null)
+					max = 4;
+				else if (questionListing.getAnswer3() != null)
+					max = 3;
+				else if (questionListing.getAnswer2() != null)
+					max = 2;
+			%>
+			
+			<logic:equal name="questionListing" property="useSameLikert" value="0">
+				<%
+				if(likertCount>0)
+				{%>
+					</table>
+					</td></tr>
+				<%
+				likertCount=0;
+				}
+				%>
+			<tr  > 
+			<td  colspan=3>
+			<table width="550"  border="1" cellpadding="3" cellspacing="0" >
+			<tr >
+			<td class="body_extract_text" align="left" >
+			No.
+			</td>
+			<td class="body_extract_text" align="left" >
+			Question
+			</td>
+			
+				<td class="body_extract_text" align="left" >
+				<bean:write name="questionListing" property="answer1" />&nbsp;</td>
+				
+			
+				<td class="body_extract_text" >
+				<bean:write name="questionListing" property="answer2" />&nbsp;</td>
+			
+			<% if (max >= 3){ %>
+				<td class="body_extract_text" align="left" >
+				<bean:write name="questionListing" property="answer3" />&nbsp;</td>
+			<% } %>
+			<% if (max >= 4){ %>
+				<td class="body_extract_text" align="left">
+				<bean:write name="questionListing" property="answer4" />&nbsp;</td>
+			<% } %>
+			<% if (max >= 5){ %>
+				<td class="body_extract_text" align="left">
+				<bean:write name="questionListing" property="answer5" />&nbsp;</td>
+			<% } %>
+			
+			</tr>
+
+			</logic:equal>
+															
+			<td class="body_extract_text" align="left" >
+				<strong>
+					<bean:write name="questionListing" property="questionNo" />
+				</strong>
+			</td>
+			<td class="body_extract_text" align="left" >
+			<bean:write name="questionListing" property="question" />
+			</td>
+			
+				<td class="body_extract_text" align="left" >
+				
+				<logic:equal name="questionListing" property="response1" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer1" checked="checked" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer1" checked="checked">
+					</logic:notEqual>
+				</logic:equal>
+				<logic:notEqual name="questionListing" property="response1" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer1" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer1">
+					</logic:notEqual>
+				</logic:notEqual>
+			
+			
+				<td class="body_extract_text" >
+				
+				<logic:equal name="questionListing" property="response2" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer2" checked="checked" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer2" checked="checked">
+					</logic:notEqual>
+				</logic:equal>
+				<logic:notEqual name="questionListing" property="response2" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer2" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer2">
+					</logic:notEqual>
+				</logic:notEqual>
+				</td>
+			
+			<% if (max >= 3){ %>
+				<td class="body_extract_text" align="left" >
+				
+				<logic:equal name="questionListing" property="response3" value="1">
+				<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer3" checked="checked" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer3" checked="checked">
+					</logic:notEqual>
+				</logic:equal>
+				<logic:notEqual name="questionListing" property="response3" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer3" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer3">
+					</logic:notEqual>
+				</logic:notEqual>
+				</td>
+			<% } %>
+			<% if (max >= 4){ %>
+				<td class="body_extract_text" align="left">
+				
+				<logic:equal name="questionListing" property="response4" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer4" checked="checked" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer4" checked="checked">
+					</logic:notEqual>
+				</logic:equal>
+				<logic:notEqual name="questionListing" property="response4" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer4" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer4">
+					</logic:notEqual>
+				</logic:notEqual>
+				</td>
+			<% } %>
+			<% if (max >= 5){ %>
+				<td class="body_extract_text" align="left">
+				
+				<logic:equal name="questionListing" property="response5" value="1">
+				<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer5" checked="checked" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer5" checked="checked">
+					</logic:notEqual>
+				</logic:equal>
+				<logic:notEqual name="questionListing" property="response5" value="1">
+					<logic:equal name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer5" disabled="disabled">
+					</logic:equal>
+					<logic:notEqual name="ConsultPresentPaperForm" property="status" value="S">
+						<input name='<bean:write name="questionListing" property="questionId" />' type="radio" value="answer5">
+					</logic:notEqual>
+				</logic:notEqual>
+				</td>
+			<% } %>
+			
+			</tr>
+			

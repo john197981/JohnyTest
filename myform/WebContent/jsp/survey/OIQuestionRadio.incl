@@ -1,0 +1,80 @@
+			<table width="100%"  border="0" cellpadding="3" cellspacing="0">
+
+			<logic:notEqual name="objQuestion" property="strAnswer1" value="">
+			<tr >
+				<td class="body_extract_text" align="left" width="15"><html:radio property="strRbResponse" name="objResponse" value="R1" indexed="true"  styleId="<%= qstCnt+"R1" %>"  /></td>
+				<td class="body_extract_text" align="left" width="98%"><bean:write name="objQuestion" property="strAnswer1" /></td>
+			</tr>
+			</logic:notEqual>
+			<logic:notEqual name="objQuestion" property="strAnswer2" value="">
+			<tr >
+				<td class="body_extract_text" align="left" width="15"><html:radio property="strRbResponse" name="objResponse" value="R2" indexed="true"  styleId="<%= qstCnt+"R2" %>"  /></td>
+				<td class="body_extract_text" align="left" width="98%"><bean:write name="objQuestion" property="strAnswer2" /></td>
+			</tr>
+			</logic:notEqual>
+			<logic:notEqual name="objQuestion" property="strAnswer3" value="">
+			<tr >
+				<td class="body_extract_text" align="left" width="15"><html:radio property="strRbResponse" name="objResponse" value="R3" indexed="true"  styleId="<%= qstCnt+"R3" %>"  /></td>
+				<td class="body_extract_text" align="left" width="98%"><bean:write name="objQuestion" property="strAnswer3" /></td>
+			</tr>
+			</logic:notEqual>
+			<logic:notEqual name="objQuestion" property="strAnswer4" value="">
+			<tr >
+				<td class="body_extract_text" align="left" width="15"><html:radio property="strRbResponse" name="objResponse" value="R4" indexed="true"  styleId="<%= qstCnt+"R4" %>"  /></td>
+				<td class="body_extract_text" align="left" width="98%"><bean:write name="objQuestion" property="strAnswer4" /></td>
+			</tr>
+			</logic:notEqual>
+			<logic:notEqual name="objQuestion" property="strAnswer5" value="">
+			<tr >
+				<td class="body_extract_text" align="left" width="15"><html:radio property="strRbResponse" name="objResponse" value="R5" indexed="true"  styleId="<%= qstCnt+"R5" %>"  /></td>
+				<td class="body_extract_text" align="left" width="98%"><bean:write name="objQuestion" property="strAnswer5" /></td>
+			</tr>
+			</logic:notEqual>
+			<logic:notEqual name="objQuestion" property="strAnswer6" value="">
+			<tr >
+				<td class="body_extract_text" align="left" width="15"><html:radio property="strRbResponse" name="objResponse" value="R6" indexed="true"  styleId="<%= qstCnt+"R6" %>"  /></td>
+				<td class="body_extract_text" align="left" width="98%"><bean:write name="objQuestion" property="strAnswer6" /></td>
+			</tr>
+			</logic:notEqual>
+			<logic:notEqual name="objQuestion" property="strAnswer7" value="">
+			<tr >
+				<td class="body_extract_text" align="left" width="15"><html:radio property="strRbResponse" name="objResponse" value="R7" indexed="true"  styleId="<%= qstCnt+"R7" %>"  /></td>
+				<td class="body_extract_text" align="left" width="98%"><bean:write name="objQuestion" property="strAnswer7" /></td>
+			</tr>
+			</logic:notEqual>
+			<logic:notEqual name="objQuestion" property="strAnswer8" value="">
+			<tr >
+				<td class="body_extract_text" align="left" width="15"><html:radio property="strRbResponse" name="objResponse" value="R8" indexed="true"  styleId="<%= qstCnt+"R8" %>"  /></td>
+				<td class="body_extract_text" align="left" width="98%"><bean:write name="objQuestion" property="strAnswer8" /></td>
+			</tr>
+			</logic:notEqual>
+			<logic:notEqual name="objQuestion" property="strAnswer9" value="">
+			<tr >
+				<td class="body_extract_text" align="left" width="15"><html:radio property="strRbResponse" name="objResponse" value="R9" indexed="true"  styleId="<%= qstCnt+"R9" %>"  /></td>
+				<td class="body_extract_text" align="left" width="98%"><bean:write name="objQuestion" property="strAnswer9" /></td>
+			</tr>
+			</logic:notEqual>
+			<logic:notEqual name="objQuestion" property="strAnswer10" value="">
+			<tr >
+				<td class="body_extract_text" align="left" width="15"><html:radio property="strRbResponse" name="objResponse" value="R10" indexed="true"  styleId="<%= qstCnt+"R10" %>"  /></td>
+				<td class="body_extract_text" align="left" width="98%"><bean:write name="objQuestion" property="strAnswer10" /></td>
+			</tr>
+			</logic:notEqual>
+			<logic:equal name="objQuestion" property="strOtherRemarks" value="Y" >
+			<tr >
+				<td class="body_extract_text" align="left" width="15">&nbsp;</td>
+				<td class="body_extract_text"  align="left"><html:text property="strOtherRemarks" name="objResponse"  maxlength="200" size="60" indexed="true" onkeypress="<%= "document.getElementById('"+qstCnt+"R10').checked = true;" %>" /></td>
+				<!--
+				<td class="body_extract_text"  align="left"  colspan="2" NOWRAP>
+				<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+				<tr >
+					<td class="body_extract_text" align="left" width="25%">Others </td>
+					<td class="body_extract_text"  align="left" width="75%"><html:text property="strOtherRemarks" name="objResponse"  maxlength="200" size="60" indexed="true" /></td>
+				</tr>
+				</table>
+				</td>
+				-->
+			</tr>
+			</logic:equal>
+
+			</table>

@@ -1,0 +1,158 @@
+package com.oifm.consultation;
+import com.oifm.common.OILabelConstants;
+/*
+ * Class Name:
+ * Description:
+ * 
+ * 	Created By			Created/Modified on			Revision				Remarks
+ * -----------------------------------------------------------------------------------------------------
+ * 	Rajkumar			19/06/2005					Draft					Inital Version
+ * 
+ * -----------------------------------------------------------------------------------------------------
+ */
+
+
+public interface OIConsultationSqls 
+{
+	public static final String	SAVE_CATEGORY = "insert into OI_CP_CATEGORY (CATEGORYID,NAME, CREATED_ON, CREATED_BY) values (SEQ_OI_CP_CATEGORYID.NEXTVAL,?,SYSDATE,?)";
+	public static final String	READ_CATEGORY = "select CATEGORYID,NAME from OI_CP_CATEGORY category where category.CATEGORYID=?";
+	public static final String	READ_ALL_CATEGORY = "select CATEGORYID,NAME from OI_CP_CATEGORY category";
+	public static final String	UPDATE_CATEGORY = "update OI_CP_CATEGORY set NAME=? where CATEGORYID=?";
+	public static final String	CHECK_CATEGORY ="select count(*) count from OI_CP_PAPER paper where paper.CATEGORYID=?"; 
+	public static final String	DELETE_CATEGORY = "delete from OI_CP_CATEGORY category where category.CATEGORYID=?";
+    //public static final String	SAVE_CATEGORY = "insert into OI_CP_CATEGORY (NAME, CREATED_ON, CREATED_BY) values (?,SYSDATE,?)";
+    public static final String	CONSULT_LISTING = "select * from (select category.NAME aName,category.CATEGORYID aCategoryId,paper.PAPERID aPaperId,paper.TITLE aTitle, Decode(REMINDER_MODE,'M',Decode(security,'R',Decode(greatest(sysdate,nvl(paper.TO_DT,sysdate-1)),sysdate,'N',paper.TO_DT,paper.MAIL_STATUS),'U','N'),'A','N') aMailStatus, paper.DESCRIPTION aDescription, paper.FROM_DT aFromDt, paper.TO_DT aToDt, SECURITY,TARGETAUDIENCE from OI_CP_CATEGORY category, OI_CP_PAPER paper where  paper.CATEGORYID (+) = category.CATEGORYID  order by category.CATEGORYID) a, ( select * from  (select paper.MAIL_STATUS aMailStatus,paper.PAPERID bPaperId from OI_CP_CATEGORY category, OI_CP_PAPER paper where  paper.CATEGORYID (+) = category.CATEGORYID and trunc(SYSDATE) between trunc(SYSDATE) and trunc(TO_DT) order by category.CATEGORYID) b,( select	paper.PAPERID cPaperId, nvl(cdMaster.shortname, cdMaster.DESCRIPTION) || '<br/>(' || profile.name || ')'  DESCRIPTION,paper.DIVISIONCODE from OI_CP_CATEGORY category,OI_CP_PAPER paper,OI_AD_CODE_MASTER cdMaster,OI_AD_PROFILE profile where paper.CATEGORYID = category.CATEGORYID and paper.CREATED_BY = profile.USERID and cdMaster.VALUE(+)=paper.DIVISIONCODE and cdMaster.TYPE(+)='DIVISION_CODE' order by category.CATEGORYID ) c where c.cPaperId = b.bPaperId(+)) d where a.aPaperId=d.cPaperId(+)"; 
+    public static final String	CONSULT_LISTING_FEEDBACK = "select feedback.PAPERID aPaperId, count(*) aNoFeedBacks from OI_CP_FEEDBACK feedback,OI_AD_PROFILE profile where profile.USERID=feedback.USERID and feedback.USERID in (select userid from OI_CPSU_DRAFTS draft where draft.CPSUID=feedback.PAPERID  and draft.DRAFT_TYPE like'C' and draft.STATUS='S') group by feedback.PAPERID";
+    public static final String	CONSULT_PAPER_INSERT = "Insert into OI_CP_PAPER (PAPERID, CATEGORYID, DESCRIPTION, FROM_DT, TO_DT, TITLE, SECURITY, MAIL_STATUS, ATTACHED_FILE, SUMMARY, TARGETAUDIENCE, REMINDER_MODE, ACTIVE, CREATED_ON, CREATED_BY, DIVISIONCODE,CONTACTPERSON,PHONE,EMAILADDRESS,INSTRUCTIONS,COMPLETIONTIME,FINDING_PUBLISHED_PLANNED_DATE,FINDINGS_VIEW_TYPE,PUBLISHED_ST,OPENTAG,TAG_WORDS,EMAILDATE,EMAILMESSAGE) Values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, ?,?,?,?,?,?,?,TO_DATE(?,'"+OILabelConstants.INPUT_DATE_FORMAT +"'),?,?,?,?,TO_DATE(?,'"+OILabelConstants.INPUT_DATE_FORMAT +"'),?)";
+     public static final String	CONSULT_PAPER_READ = "Select PAPERID, CATEGORYID, DESCRIPTION, FROM_DT, TO_DT, TITLE, SECURITY, MAIL_STATUS, ATTACHED_FILE, SUMMARY, TARGETAUDIENCE, REMINDER_MODE, ACTIVE, CREATED_ON, CREATED_BY,PUBLISHED_ST,PUBLISHED_ON, ATTACHED_SUM,DIVISIONCODE,CONTACTPERSON,PHONE,EMAILADDRESS,INSTRUCTIONS,COMPLETIONTIME,to_char(FINDING_PUBLISHED_PLANNED_DATE,'"+OILabelConstants.INPUT_DATE_FORMAT +"') FINDING_PUBLISHED_PLANNED_DATE,FINDINGS_VIEW_TYPE,PUBLISHED_ST,OPENTAG,TAG_WORDS,to_char(EMAILDATE,'"+OILabelConstants.INPUT_DATE_FORMAT +"') EMAILDATE,EMAILMESSAGE from OI_CP_PAPER where PAPERID=?";
+    public static final String	CONSULT_PAPER_READ_WITH_PAPERNAME = "Select PAPERID, CATEGORYID, DESCRIPTION, FROM_DT, TO_DT, TITLE, SECURITY, MAIL_STATUS, ATTACHED_FILE, SUMMARY, TARGETAUDIENCE, REMINDER_MODE, ACTIVE, CREATED_ON, CREATED_BY,PUBLISHED_ST,PUBLISHED_ON, ATTACHED_SUM,CONTACTPERSON,PHONE,EMAILADDRESS,INSTRUCTIONS,COMPLETIONTIME,to_char(FINDING_PUBLISHED_PLANNED_DATE,'"+OILabelConstants.INPUT_DATE_FORMAT +"') FINDING_PUBLISHED_PLANNED_DATE,FINDINGS_VIEW_TYPE,PUBLISHED_ST,OPENTAG,TAG_WORDS,to_char(EMAILDATE,'"+OILabelConstants.INPUT_DATE_FORMAT +"')  EMAILDATE,EMAILMESSAGE from OI_CP_PAPER where TITLE=?";
+    
+    public static final String	CONSULT_QUESTION_READALL = "select QUESTIONID,PAPERID,QUESTION,ANSWER_TYPE,ANSWER1,ANSWER2,ANSWER3,ANSWER4,ANSWER5,NEEDOTHERREMARK,LIKERT_SCALE,USE_LIKERT,OI_PKG.CAN_CP_REORDER(PAPERID,QUESTIONID,'-1') CAN_MOVE_UP, OI_PKG.CAN_CP_REORDER(PAPERID,QUESTIONID,'1') CAN_MOVE_DOWN from OI_CP_QUESTIONS where PAPERID=? order by nvl(QUESTIONORDER,QUESTIONID)";
+	public static final String	DELETE_QUESTION = "delete from OI_CP_QUESTIONS questions where questions.QUESTIONID=?";
+    public static final String	CONSULT_QUESTION_INSERT = "Insert into OI_CP_QUESTIONS (QUESTIONID, PAPERID, QUESTION, ANSWER_TYPE, ANSWER1, ANSWER2, ANSWER3, ANSWER4, ANSWER5,NEEDOTHERREMARK,LIKERT_SCALE,USE_LIKERT) Values (SEQ_OI_CP_QUESTIONID.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public static final String	CONSULT_QUESTION_READ = "select QUESTIONID,PAPERID,QUESTION,ANSWER_TYPE,ANSWER1,ANSWER2,ANSWER3,ANSWER4,ANSWER5,NEEDOTHERREMARK,LIKERT_SCALE,USE_LIKERT from OI_CP_QUESTIONS where QUESTIONID=?";
+	public static final String	CONSULT_QUESTION_UPDATE = "update OI_CP_QUESTIONS set QUESTION=?,ANSWER_TYPE=?,ANSWER1=?,ANSWER2=?,ANSWER3=?,ANSWER4=?,ANSWER5=?,NEEDOTHERREMARK=?,LIKERT_SCALE=?,USE_LIKERT=? where QUESTIONID=?";
+	public static final String	CONSULT_REMOVEATTACHMENT = "update OI_CP_PAPER set ATTACHED_FILE = null where PAPERID=?";
+	public static final String	CONSULT_PAPER_UPDATE = "update OI_CP_PAPER set CATEGORYID=?, DESCRIPTION=?, FROM_DT=?, TO_DT=?, TITLE=?, SECURITY=?, ATTACHED_FILE=?, SUMMARY=?,TARGETAUDIENCE=?,REMINDER_MODE=?,ACTIVE=?,CONTACTPERSON=?,PHONE=?,EMAILADDRESS=?,INSTRUCTIONS=?,COMPLETIONTIME=?,FINDING_PUBLISHED_PLANNED_DATE=TO_DATE(?,'"+OILabelConstants.INPUT_DATE_FORMAT +"'),FINDINGS_VIEW_TYPE=?,PUBLISHED_ST=?,OPENTAG=?,TAG_WORDS=?,EMAILDATE=TO_DATE(?,'"+OILabelConstants.INPUT_DATE_FORMAT +"'),EMAILMESSAGE=?  where PAPERID=?";
+	public static final String	CONSULT_PAPER_RESPONSE_DELETE = "delete from OI_CP_RESPONSE response where response.QUESTIONID in (select QUESTIONID from OI_CP_QUESTIONS question where question.PAPERID=?)";
+	public static final String	CONSULT_PAPER_FEEDBACK_DELETE = "delete from OI_CP_FEEDBACK feedback where feedback.PAPERID=?";
+	public static final String	CONSULT_PAPER_QUESTIONS_DELETE = "delete from OI_CP_QUESTIONS questions where questions.PAPERID=?";
+	public static final String	CONSULT_PAPER_DELETE = "delete from OI_CP_PAPER paper where paper.PAPERID=?";
+	//public static final String	CONSULT_READ_FEEDBACKALL = "select FEEDBACK1,FEEDBACK2 feedback,paper.paperid,profile.USERID userid, profile.name name, FEEDBACK_ON feedbackon, SCHOOLNAME SCHOOL, cdMaster.description DIVISION from OI_CP_FEEDBACK feedback, OI_AD_PROFILE profile, OI_AD_SCHOOLS schools, OI_AD_CODE_MASTER cdMaster,OI_CP_PAPER paper  where profile.USERID in (select userid from OI_CPSU_DRAFTS draft where draft.CPSUID=?  and draft.DRAFT_TYPE like'C' and draft.STATUS='S') and feedback.PAPERID=? and profile.USERID=feedback.USERID and schools.SCHOOLCODE(+)=profile.SCHOOLCODE and  (cdMaster.TYPE='DIVISION_CODE' OR cdMaster.TYPE is NULL) and paper.DIVISIONCODE = cdMaster.VALUE(+) and paper.PAPERID = feedback.PAPERID";
+	public static final String	CONSULT_READ_FEEDBACKALL = "select FEEDBACK1,FEEDBACK2 feedback,paper.paperid,profile.USERID userid, profile.name name, FEEDBACK_ON feedbackon, SCHOOLNAME SCHOOL, cdMaster.description DIVISION,ROUND((SYSDATE - BIRTH_DT)/(365)) age,ROUND((SYSDATE - JOINING_DT)/(365)) service,CDDESIGNATION.DESCRIPTION Designation, emailid,SCHLVL.DESCRIPTION SCHOOL_TYPE from OI_CP_FEEDBACK feedback, OI_AD_PROFILE profile, OI_AD_SCHOOLS schools, OI_AD_CODE_MASTER cdMaster,OI_AD_CODE_MASTER CDDESIGNATION,OI_CP_PAPER paper,OI_AD_CODE_MASTER SCHLVL  where profile.USERID in (select userid from OI_CPSU_DRAFTS draft where draft.CPSUID=?  and draft.DRAFT_TYPE like'C' and draft.STATUS='S') and feedback.PAPERID=? and profile.USERID=feedback.USERID and schools.SCHOOLCODE(+)=profile.SCHOOLCODE and  (cdMaster.TYPE='DIVISION_CODE' OR cdMaster.TYPE is NULL) and profile.DIVISIONCODE = cdMaster.VALUE(+) AND (CDDESIGNATION.TYPE='DESIGNATION_CODE' OR CDDESIGNATION.TYPE IS NULL) AND PROFILE.DESIGNATIONCODE = CDDESIGNATION.VALUE(+) AND (SCHLVL.TYPE='SCHOOL_LEVEL' OR SCHLVL.TYPE IS NULL) AND PROFILE.SCHOOLLVLCODE=SCHLVL.VALUE(+) and paper.PAPERID = feedback.PAPERID  order by name";
+	public static final String  CONSULT_PUBLISH_UPDATE = "update OI_CP_PAPER paper set SUMMARY=?,PUBLISHED_ST=?,ATTACHED_SUM=?,PUBLISHED_ON=sysdate where paper.PAPERID=?";
+	public static final String	CONSULT_READ_FEEDBACKWITHINLIMIT = "select * from (select rownum num,FEEDBACK1,FEEDBACK2 feedback,paper.paperid,profile.USERID userid, profile.Nickname name, FEEDBACK_ON feedbackon, SCHOOLNAME SCHOOL, cdMaster.description DIVISION from OI_CP_FEEDBACK feedback, OI_AD_PROFILE profile, OI_AD_SCHOOLS schools, OI_AD_CODE_MASTER cdMaster,OI_CP_PAPER paper  where profile.USERID in (select userid from OI_CPSU_DRAFTS draft where draft.CPSUID=?  and draft.DRAFT_TYPE like'C' and draft.STATUS='S') and feedback.PAPERID=? and profile.USERID=feedback.USERID and schools.SCHOOLCODE(+)=profile.SCHOOLCODE and  (cdMaster.TYPE='DIVISION_CODE' OR cdMaster.TYPE is NULL) and profile.DIVISIONCODE = cdMaster.VALUE(+) and paper.PAPERID = feedback.PAPERID) where num>=? and num<=?";
+	public static final String	CONSULT_READ_TOTAL_FEEDBACK = "select count(*) totalCount from OI_CP_FEEDBACK feedback,OI_AD_PROFILE profile where profile.USERID=feedback.USERID and feedback.PAPERID=? and feedback.USERID in (select userid from OI_CPSU_DRAFTS draft where draft.CPSUID=?  and draft.DRAFT_TYPE like'C' and draft.STATUS='S')";
+	public static final String	CONSULT_WEB_LISTING_CURRENT_PAPERS = "select * from (select * from (select category.CATEGORYID,category.NAME,PAPERID,TITLE,DESCRIPTION,FROM_DT,TO_DT, SECURITY , ACTIVE from OI_CP_PAPER paper, OI_CP_CATEGORY category where category.CATEGORYID=paper.CATEGORYID and SECURITY like 'U' and ACTIVE='1' and trunc(SYSDATE) between trunc(FROM_DT) and trunc(TO_DT) ) t, (select STATUS,PAPERID tPAPERID from OI_CP_PAPER paper1,OI_CPSU_DRAFTS draft where draft.CPSUID=paper1.PAPERID and draft.USERID=? and draft.DRAFT_TYPE like'C') su where su.tPAPERID(+) = t.PAPERID  UNION select * from (select category.CATEGORYID,category.NAME,PAPERID,TITLE,DESCRIPTION,FROM_DT,TO_DT, SECURITY , ACTIVE from OI_CP_PAPER paper, OI_CP_CATEGORY category where category.CATEGORYID=paper.CATEGORYID and SECURITY like 'R' and OI_PKG.IS_CP_MEMBER(paper.PAPERID,?) > 0  and ACTIVE='1' and trunc(SYSDATE) between trunc(FROM_DT) and trunc(TO_DT)) t, (select STATUS,PAPERID tPAPERID from OI_CP_PAPER paper1, OI_CPSU_DRAFTS draft where draft.CPSUID=paper1.PAPERID and draft.USERID=? and draft.DRAFT_TYPE like'C')  su where su.tPAPERID(+) = t.PAPERID ) order by SECURITY,TO_DT desc"; 
+	public static final String	CONSULT_WEB_LISTING_PAST_PAPERS = "select category.CATEGORYID,category.NAME,PAPERID,TITLE,DESCRIPTION,FROM_DT,TO_DT, SECURITY ,ACTIVE from OI_CP_PAPER paper, OI_CP_CATEGORY category where category.CATEGORYID=paper.CATEGORYID and SECURITY like 'U' and ACTIVE='1' and trunc(SYSDATE) not between trunc(FROM_DT) and trunc(TO_DT) and (PUBLISHED_ON IS NOT NULL and to_date(PUBLISHED_ON) <= to_date(SYSDATE)) UNION select category.CATEGORYID, category.NAME,PAPERID,TITLE,DESCRIPTION,FROM_DT,TO_DT, SECURITY , ACTIVE from OI_CP_PAPER paper, OI_CP_CATEGORY category where category.CATEGORYID=paper.CATEGORYID and SECURITY like 'R' and OI_PKG.IS_CP_MEMBER(paper.PAPERID,?) > 0 and ACTIVE='1' and trunc(SYSDATE) not between trunc(FROM_DT) and trunc(TO_DT) and (PUBLISHED_ON IS NOT NULL and to_date(PUBLISHED_ON) <= to_date(SYSDATE))";
+	public static final String	CONSULT_REMOVEPUBLISHATTACHMENT = "update OI_CP_PAPER set ATTACHED_SUM = null where PAPERID=?";
+	public static final String  CONSULT_PAPER_FEEDBACK_INSERT = "Insert into OI_CP_FEEDBACK(FEEDBACKID, PAPERID, USERID, FEEDBACK1, FEEDBACK2, FEEDBACK_ON) Values (SEQ_OI_CP_FEEDBACKID.NEXTVAL , ?, ?, ?, ?, SYSDATE)";
+	public static final String  CONSULT_PAPER_FEEDBACK_READ = "select FEEDBACKID, PAPERID, USERID, FEEDBACK1, FEEDBACK2, FEEDBACK_ON from OI_CP_FEEDBACK feedback where feedback.PAPERID = ? and feedback.USERID = ?";
+	// Added by Nimitta on Sep 14,2009
+	public static final String	CONSULT_PAPER_RESPONSE_READ = "select RESPONSEID, QUESTIONID, USERID, RESPONSE_ON, RESPONSE1, RESPONSE2, RESPONSE3, RESPONSE4, RESPONSE5, REMARKS, OTHERREMARKS from OI_CP_RESPONSE response where response.USERID=? and response.QUESTIONID in (select QUESTIONID from OI_CP_QUESTIONS question where question.PAPERID=?) order by QUESTIONID asc";
+	public static final String  CONSULT_PAPER_FEEDBACK_UPDATE = "update OI_CP_FEEDBACK set FEEDBACK1=?,FEEDBACK2=?,FEEDBACK_ON=SYSDATE where FEEDBACKID=?";
+	public static final String	CONSULT_PAPER_RESPONSE_READ_Q = "select RESPONSEID, QUESTIONID, USERID, RESPONSE_ON, RESPONSE1, RESPONSE2, RESPONSE3, RESPONSE4, RESPONSE5, REMARKS, OTHERREMARKS from OI_CP_RESPONSE response where response.QUESTIONID=? and response.USERID=?";
+	public static final String	CONSULT_PAPER_RESPONSE_INSERT = "Insert into OI_CP_RESPONSE (RESPONSEID, QUESTIONID, USERID, RESPONSE_ON, RESPONSE1, RESPONSE2, RESPONSE3, RESPONSE4, RESPONSE5, REMARKS,OTHERREMARKS)  Values (SEQ_OI_CP_RESPONSEID.NEXTVAL, ?, ?, SYSDATE, ?, ?, ?, ?, ?, ?,?)";
+	public static final String	CONSULT_PAPER_RESPONSE_UPDATE = "update OI_CP_RESPONSE set RESPONSE1=?,RESPONSE2=?,RESPONSE3=?,RESPONSE4=?,RESPONSE5=?,REMARKS=?,OTHERREMARKS=? where RESPONSEID=?";
+	public static final String  CONSULT_PAPER_MEMBERS_READ = "select MEMBERID, PAPERID, USERID, INVITATION_DT, SUBMITTED, SUBMITTED_ON from OI_CP_MEMBERS members where members.PAPERID=? and members.USERID=?";
+	public static final String  CONSULT_PAPER_DRAFT = "select DRAFTID, CPSUID, DRAFT_TYPE, USERID, DRAFTED_ON, STATUS from OI_CPSU_DRAFTS draft where draft.USERID=? and draft.CPSUID=? and DRAFT_TYPE='C'";
+	public static final String  CONSULT_PAPER_DRAFT_INSERT = "Insert into OI_CPSU_DRAFTS (DRAFTID, CPSUID, DRAFT_TYPE, USERID, DRAFTED_ON, STATUS) Values (SEQ_OI_CPSU_DRAFTID.NEXTVAL, ?, 'C', ?, SYSDATE,?)";
+	public static final String  CONSULT_PAPER_DRAFT_UPDATE = "update OI_CPSU_DRAFTS set STATUS = ? , DRAFTED_ON=SYSDATE where DRAFTID = ?";
+	public static final String  CONSULT_PAPER_MEMBERS_UPDATE = "update OI_CP_MEMBERS set SUBMITTED='Y', SUBMITTED_ON=SYSDATE where MEMBERID = ?";
+	public static final String	CONSULT_PAPER_RESPONSE_READALL = "select RESPONSEID, QUESTIONID, NICKNAME, RESPONSE_ON, RESPONSE1, RESPONSE2, RESPONSE3, RESPONSE4, RESPONSE5, REMARKS, OTHERREMARKS from OI_CP_RESPONSE response,OI_AD_PROFILE profile where profile.USERID = response.USERID and response.QUESTIONID in (select QUESTIONID from OI_CP_QUESTIONS question where question.PAPERID=?) order by response.USERID,QUESTIONID";
+	public static final String	CONSULT_PAPER_ACTIVE_PAPER_CHECK = "select count(*) count from OI_CP_PAPER paper where paper.PAPERID=? and ACTIVE ='1' and SYSDATE between FROM_DT and TO_DT";
+	
+	public static final String  CONSULT_CHECK_DUPLICATE_CATEGORY = "select count(*) count from OI_CP_CATEGORY category where TRIM(lower(category.NAME))=TRIM(lower(?))";
+	public static final String  CONSULT_CHECK_DUPLICATE_CATEGORY1 = "select count(*) count from OI_CP_CATEGORY category where TRIM(lower(category.NAME))=TRIM(lower(?)) and category.CATEGORYID<>?";
+	public static final String  CONSULT_CHECK_DUPLICATE_PAPER = "select count(*) count from OI_CP_PAPER paper where paper.CATEGORYID=? and TRIM(lower(paper.TITLE)) = TRIM(lower(?))";
+	public static final String  CONSULT_CHECK_DUPLICATE_PAPER1 = "select count(*) count from OI_CP_PAPER paper where paper.CATEGORYID=? and TRIM(lower(paper.TITLE)) = TRIM(lower(?)) and paper.PAPERID<>?";
+	public static final String	CONSULT_MEMBER_DELETE = "delete from OI_CP_MEMBERS member where member.PAPERID=?";
+	//public static final String	CONSULT_PAPER_NOT_ACTIVE_PAPER_CHECK = "select count(*) count from OI_CP_PAPER paper where paper.PAPERID=? and ACTIVE ='1' and (trunc(SYSDATE) not between trunc(FROM_DT) and trunc(TO_DT) or to_date(TO_DT) <= to_date(SYSDATE))";
+	public static final String	CONSULT_PAPER_NOT_ACTIVE_PAPER_CHECK = "select count(*) count from OI_CP_PAPER paper where paper.PAPERID=? and ACTIVE ='1' and (trunc(SYSDATE) not between trunc(FROM_DT) and trunc(TO_DT) or to_date(TO_DT) < to_date(SYSDATE)) and to_date(FROM_DT) <= to_date(SYSDATE)";
+	//added by edmund
+	public static final String	CONSULT_READ_NAME_EMAIL = "";
+	public static final String	CONSULT_READ_AGE = "SELECT AGE_DESC DESCRIPTION, COUNT(*) TOTAL_RESPONSES FROM VW_OI_CP_SUMMARY WHERE PAPERID=? GROUP BY AGE_DESC";
+	public static final String	CONSULT_READ_LEVEL = "SELECT SCHLVL_DESC DESCRIPTION, COUNT(*) TOTAL_RESPONSES FROM VW_OI_CP_SUMMARY WHERE PAPERID=? GROUP BY SCHLVL_DESC";
+	public static final String	CONSULT_READ_YEAR = "SELECT JOINDT_DESC DESCRIPTION, COUNT(*) TOTAL_RESPONSES FROM VW_OI_CP_SUMMARY WHERE PAPERID=? GROUP BY JOINDT_DESC";
+	public static final String	CONSULT_READ_DESIGNATION = "SELECT DESIG_DESC DESCRIPTION, COUNT(*) TOTAL_RESPONSES FROM VW_OI_CP_SUMMARY WHERE PAPERID=? GROUP BY DESIG_DESC";
+	
+	/*public static final String	CONSULT_READ_AGE = "Select Description, TOTAL_RESPONSES from VW_OI_PAPER_AGE_SUMMARY where paperid = ?";
+	public static final String	CONSULT_READ_LEVEL = "Select Description, TOTAL_RESPONSES from VW_OI_PAPER_SCHLVL_SUMMARY where paperid =?";
+	public static final String	CONSULT_READ_YEAR = "Select Description, TOTAL_RESPONSES from VW_OI_PAPER_YRSSVC_SUMMARY where paperid =?";
+	public static final String	CONSULT_READ_DESIGNATION = "Select Description, TOTAL_RESPONSES from VW_OI_PAPER_DESIG_SUMMARY where paperid =?";
+	*/
+	//public static final String	TOTAL_USER = "select count(distinct userid) total from oi_cp_response a,oi_cp_questions b where a.questionid = b.questionid and PAPERID= ?";
+	public static final String	TOTAL_USER =	"select count(*)total from oi_cpsu_drafts where draft_type='C' and status='S' and cpsuid=?";
+	public static final String	GET_PAPER_TITLE = "select title from OI_CP_PAPER where paperId = ?";
+	
+	
+	//public static final String	DETAIL_FRONT = "select questionid,question, answer1, answer2, answer3,answer4, answer5 ,NEEDOTHERREMARK, count(response1) response1Count, count(response2) response2Count, count(response3) response3Count, count(response4) response4Count, count(response5) response5Count, count(otherremarks) oRemarksCount,QUESTIONORDER from ( SELECT OSR.USERID, OSQ.QUESTIONID,OSQ.QUESTION, OSQ.ANSWER1, OSQ.ANSWER2,OSQ.ANSWER3,OSQ.ANSWER4,OSQ.ANSWER5, OSQ.NEEDOTHERREMARK,OSQ.QUESTIONORDER, OSQ.ANSWER_TYPE, RESPONSEID,RESPONSE1,RESPONSE2 ,RESPONSE3 , RESPONSE4 ,RESPONSE5 ,OTHERREMARKS, NVL(NAME,OSR.USERID) NICKNAME, SCHOOLNAME SCHOOLCODE,cdMaster.description DIVISIONCODE,ROUND((SYSDATE - BIRTH_DT)/(365)) age,ROUND((SYSDATE - JOINING_DT)/(365)) service,CDDESIGNATION.DESCRIPTION Designation, emailid,SCHLVL.DESCRIPTION SCHOOL_TYPE FROM OI_CP_QUESTIONS OSQ, OI_CP_RESPONSE OSR, OI_AD_PROFILE OAP,OI_AD_SCHOOLS schools, OI_AD_CODE_MASTER cdMaster,OI_AD_CODE_MASTER CDDESIGNATION,OI_AD_CODE_MASTER SCHLVL WHERE  OSQ.PAPERID = ? AND OSQ.QUESTIONID = OSR.QUESTIONID AND UPPER(OSR.USERID) = UPPER(OAP.USERID) and schools.SCHOOLCODE(+)=OAP.SCHOOLCODE and  (cdMaster.TYPE='DIVISION_CODE' OR cdMaster.TYPE is NULL) and DIVISIONCODE = cdMaster.VALUE(+) and (CDDESIGNATION.TYPE='DESIGNATION_CODE' OR CDDESIGNATION.TYPE IS NULL) AND OAP.DESIGNATIONCODE = CDDESIGNATION.VALUE(+) AND (SCHLVL.TYPE='SCHOOL_LEVEL' OR SCHLVL.TYPE IS NULL) AND OAP.SCHOOLLVLCODE=SCHLVL.VALUE(+) ";
+//	 Edited by K.K.Kumaresan on Aug 7,2009.
+	public static final String	DETAIL_FRONT = "select questionid,question, answer1, answer2, answer3,answer4, answer5 ,NEEDOTHERREMARK, count(response1) response1Count, count(response2) response2Count, count(response3) response3Count, count(response4) response4Count, count(response5) response5Count, count(otherremarks) oRemarksCount,QUESTIONORDER from ( SELECT OSR.USERID, OSQ.QUESTIONID,OSQ.QUESTION, OSQ.ANSWER1, OSQ.ANSWER2,OSQ.ANSWER3,OSQ.ANSWER4,OSQ.ANSWER5, OSQ.NEEDOTHERREMARK,OSQ.QUESTIONORDER, OSQ.ANSWER_TYPE, RESPONSEID,RESPONSE1,RESPONSE2 ,RESPONSE3 , RESPONSE4 ,RESPONSE5 ,OTHERREMARKS, NVL(NAME,OSR.USERID) NICKNAME, SCHOOLNAME SCHOOLCODE,cdMaster.description DIVISIONCODE,ROUND((SYSDATE - BIRTH_DT)/(365)) age,ROUND((SYSDATE - JOINING_DT)/(365)) service,CDDESIGNATION.DESCRIPTION Designation, emailid,SCHLVL.DESCRIPTION SCHOOL_TYPE FROM OI_CP_QUESTIONS OSQ, OI_CP_RESPONSE OSR, OI_AD_PROFILE OAP,OI_AD_SCHOOLS schools, OI_AD_CODE_MASTER cdMaster,OI_AD_CODE_MASTER CDDESIGNATION,OI_AD_CODE_MASTER SCHLVL,OI_CPSU_DRAFTS D,OI_CP_PAPER C WHERE  OSQ.PAPERID = ? AND OSQ.QUESTIONID = OSR.QUESTIONID(+) AND UPPER(OSR.USERID) = UPPER(OAP.USERID(+)) and schools.SCHOOLCODE(+)=OAP.SCHOOLCODE and  (cdMaster.TYPE='DIVISION_CODE' OR cdMaster.TYPE is NULL) and OAP.DIVISIONCODE = cdMaster.VALUE(+) and (CDDESIGNATION.TYPE='DESIGNATION_CODE' OR CDDESIGNATION.TYPE IS NULL) AND OAP.DESIGNATIONCODE = CDDESIGNATION.VALUE(+) AND (SCHLVL.TYPE='SCHOOL_LEVEL' OR SCHLVL.TYPE IS NULL) AND OAP.SCHOOLLVLCODE=SCHLVL.VALUE(+)  and  C.PAPERID = OSQ.PAPERID " +
+			" AND D.DRAFT_TYPE='C' AND D.STATUS = 'S' AND D.CPSUID = C.PAPERID AND (D.USERID = OSR.USERID or OSR.USERID is null)  ";
+	
+	
+	public static final String	DETAIL_END	= " )group by questionid ,question,answer1, answer2, answer3,answer4, answer5 , NEEDOTHERREMARK, QUESTIONORDER ORDER BY NVL(QUESTIONORDER,questionid)";
+	public static final String  DETAIL_AGE_BELOW_30 = " and ROUND((SYSDATE - BIRTH_DT)/(365)) <30 ";
+	public static final String  DETAIL_AGE_30_40 = " and ROUND((SYSDATE - BIRTH_DT)/(365)) between 30 and 40 ";
+	public static final String  DETAIL_AGE_ABOVE_40 = " and ROUND((SYSDATE - BIRTH_DT)/(365)) >40 ";
+	public static final String  DETAIL_YEAR_BELOW_3 = " and ROUND((SYSDATE - JOINING_DT)/(365)) < 3 ";
+	public static final String  DETAIL_YEAR_3_TO_5 = " and ROUND((SYSDATE - JOINING_DT)/(365)) between 3 and 5 ";
+	public static final String  DETAIL_YEAR_5_t0_10 = " and ROUND((SYSDATE - JOINING_DT)/(365)) between 5 and 10 ";
+	public static final String  DETAIL_YEAR_ABOVE_10 = " and ROUND((SYSDATE - JOINING_DT)/(365)) > 10 ";
+	public static final String	DETAIL_DESIGNATION = " and OAP.DESIGNATIONCODE = ? ";
+	public static final String	DETAIL_LEVEL = " and OAP.SCHOOLLVLCODE = ? ";
+	
+	public static final String 	OPEN_END_QUESTION = "select distinct OTHERREMARKS from oi_CP_response where questionid=?";
+
+
+
+	public static final String	COPY_QUERY	=	"call OI_PKG.COPY_PAPER(?,?,?)";
+	public static final String	REORDER_QUERY	=	"call OI_PKG.REORDER_CP_QUESTIONS(?,?)";
+	public static final String	UPDATE_LIKERT_BLOCK_ANSWERS	=	"call OI_PKG.UPDATE_LIKERT_BLOCK_ANSWERS_CP(?)";
+	public static final String	UPDATE_LIKERT_BLOCK_QUESTIONS	=	"call OI_PKG.UPDATE_LIKERT_BLOCK_Q_CP(?,?)";
+	public static final String	CONSULT_GP_IDS	=	"select distinct groupid from oi_cp_members where paperid = ?";
+	public static final String	 ADD_CP_MEMBERS =	"call OI_PKG.ADD_CP_MEMBERS(?,?)";
+	public static final String	GET_PAPER_ID = "SELECT SEQ_OI_CP_PAPERID.NEXTVAL FROM DUAL";
+	public static final String	CONSULT_QUESTION_READ_PREV = "select QUESTIONID,PAPERID,QUESTION,ANSWER_TYPE,ANSWER1,ANSWER2,ANSWER3,ANSWER4,ANSWER5,NEEDOTHERREMARK,LIKERT_SCALE,USE_LIKERT from OI_CP_QUESTIONS where QUESTIONID=OI_PKG.GET_PREV_CP_QUESTION_ID (?,?)";
+
+	public static final String UPDATE_SRC_LIKERT_SCALE = "UPDATE OI_CP_QUESTIONS SET USE_LIKERT=? WHERE QUESTIONID = ? AND NVL(USE_LIKERT,'0')=0"	;
+
+
+	
+	
+	public static final String	CONSULT_DIVISION_LISTING = "SELECT distinct A.DIVISIONCODE DIVISIONCODE,B.DESCRIPTION DIVISIONNAME FROM OI_CP_PAPER A,OI_AD_CODE_MASTER B WHERE B.TYPE='DIVISION_CODE' AND A.DIVISIONCODE=B.VALUE";
+	//public static final String	CONSULT_PAPER_LISTING = "select * from (select category.NAME aName,category.CATEGORYID aCategoryId,paper.PAPERID aPaperId,paper.TITLE aTitle, paper.MAIL_STATUS aMailStatus,TO_CHAR(trunc(paper.PUBLISHED_ON),'DD-Mon-YYYY') aPublishedOn, paper.DESCRIPTION aDescription, paper.FROM_DT aFromDt, paper.TO_DT aToDt, SECURITY,TARGETAUDIENCE from OI_CP_CATEGORY category, OI_CP_PAPER paper where  paper.CATEGORYID (+) = category.CATEGORYID and paper.divisioncode = ? order by category.CATEGORYID) a, ( select * from  (select paper.MAIL_STATUS aMailStatus,paper.PAPERID bPaperId from OI_CP_CATEGORY category, OI_CP_PAPER paper where  paper.CATEGORYID (+) = category.CATEGORYID and paper.Active='1' and trunc(SYSDATE) between trunc(SYSDATE) and trunc(TO_DT) order by category.CATEGORYID) b,(select paper.PAPERID cPaperId, nvl(cdMaster.shortname, cdMaster.DESCRIPTION) || '/' || profile.name  DESCRIPTION,paper.DIVISIONCODE from OI_CP_CATEGORY category, OI_CP_PAPER paper,OI_AD_CODE_MASTER cdMaster,OI_AD_PROFILE profile where  paper.CATEGORYID (+) = category.CATEGORYID and paper.Active='1' and paper.CREATED_BY = profile.USERID and cdMaster.VALUE=paper.DIVISIONCODE and cdMaster.TYPE='DIVISION_CODE' order by category.CATEGORYID) c  where c.cPaperId = b.bPaperId(+) ) d where a.aPaperId=d.cPaperId(+) "; 
+	public static final String	CONSULT_PAPER_LISTING =	"select * from (select category.NAME aName,category.CATEGORYID aCategoryId,paper.PAPERID aPaperId,paper.TITLE aTitle,Decode(REMINDER_MODE,'M',Decode(security,'R',Decode(greatest(sysdate,nvl(paper.TO_DT,sysdate-1)),sysdate,'N',paper.TO_DT,paper.MAIL_STATUS),'U','N'),'A','N') aMailStatus,TO_CHAR(trunc(paper.PUBLISHED_ON),'DD-Mon-YYYY') aPublishedOn,paper.DESCRIPTION aDescription,paper.FROM_DT aFromDt, paper.TO_DT aToDt, SECURITY, TARGETAUDIENCE,(SELECT Count(PaperID) FROM OI_CP_FEEDBACK  feedback, OI_AD_PROFILE profile_2 WHERE feedback.PaperID = paper.PaperID and profile_2.USERID = feedback.USERID and exists (select userid from OI_CPSU_DRAFTS draft where draft.CPSUID=feedback.PAPERID  and draft.DRAFT_TYPE like'C' and  draft.STATUS='S' and  feedback.USERID = draft.userid )) aNoFeedBacks	from OI_CP_CATEGORY category, OI_CP_PAPER paper where paper.CATEGORYID (+) = category.CATEGORYID and paper.divisioncode = ? order by category.CATEGORYID ) a,( select * from (select paper.MAIL_STATUS aMailStatus,paper.PAPERID bPaperId from OI_CP_CATEGORY category,OI_CP_PAPER paper where paper.CATEGORYID (+) = category.CATEGORYID  and trunc(SYSDATE) between trunc(SYSDATE) and trunc(TO_DT) order by category.CATEGORYID) b,( select	paper.PAPERID cPaperId, nvl(cdMaster.shortname, cdMaster.DESCRIPTION) || '<br/>(' || profile.name || ')'  DESCRIPTION,paper.DIVISIONCODE from OI_CP_CATEGORY category,OI_CP_PAPER paper,OI_AD_CODE_MASTER cdMaster,OI_AD_PROFILE profile where paper.CATEGORYID (+) = category.CATEGORYID and paper.CREATED_BY = profile.USERID and cdMaster.VALUE=paper.DIVISIONCODE and cdMaster.TYPE='DIVISION_CODE' order by category.CATEGORYID ) c where c.cPaperId = b.bPaperId(+)) d where a.aPaperId=d.cPaperId(+)";
+	public static final String	CONSULT_PAPER_LISTING_ALL =	"select * from (select category.NAME aName,category.CATEGORYID aCategoryId,paper.PAPERID aPaperId,paper.TITLE aTitle,Decode(REMINDER_MODE,'M',Decode(security,'R',Decode(greatest(sysdate,nvl(paper.TO_DT,sysdate-1)),sysdate,'N',paper.TO_DT,paper.MAIL_STATUS),'U','N'),'A','N') aMailStatus,TO_CHAR(trunc(paper.PUBLISHED_ON),'DD-Mon-YYYY') aPublishedOn,paper.DESCRIPTION aDescription,paper.FROM_DT aFromDt, paper.TO_DT aToDt, SECURITY, TARGETAUDIENCE,(SELECT Count(PaperID) FROM OI_CP_FEEDBACK  feedback, OI_AD_PROFILE profile_2 WHERE feedback.PaperID = paper.PaperID and profile_2.USERID = feedback.USERID and exists (select userid from OI_CPSU_DRAFTS draft where draft.CPSUID=feedback.PAPERID  and draft.DRAFT_TYPE like'C' and  draft.STATUS='S' and  feedback.USERID = draft.userid )) aNoFeedBacks	from OI_CP_CATEGORY category, OI_CP_PAPER paper where paper.CATEGORYID (+) = category.CATEGORYID order by category.CATEGORYID ) a,( select * from (select paper.MAIL_STATUS aMailStatus,paper.PAPERID bPaperId from OI_CP_CATEGORY category,OI_CP_PAPER paper where paper.CATEGORYID (+) = category.CATEGORYID and trunc(SYSDATE) between trunc(SYSDATE) and trunc(TO_DT) order by category.CATEGORYID) b,( select	paper.PAPERID cPaperId, nvl(cdMaster.shortname, cdMaster.DESCRIPTION) || '<br/>(' || profile.name || ')'  DESCRIPTION,paper.DIVISIONCODE from OI_CP_CATEGORY category,OI_CP_PAPER paper,OI_AD_CODE_MASTER cdMaster,OI_AD_PROFILE profile where paper.CATEGORYID (+) = category.CATEGORYID and paper.CREATED_BY = profile.USERID and cdMaster.VALUE=paper.DIVISIONCODE and cdMaster.TYPE='DIVISION_CODE' order by category.CATEGORYID ) c where c.cPaperId = b.bPaperId(+)) d where a.aPaperId=d.cPaperId(+)";
+	
+	public static final String DOES_PAPER_EXISTS =	"SELECT PAPERID FROM OI_CP_PAPER WHERE PAPERID=?";
+
+
+	public static final String	GET_PAPER_TAGS = "SELECT a.tag_id tagId, name FROM oi_tags a, oi_tags_map b WHERE a.tag_id = b.tag_id AND b.MODULE_TYPE = 'CP' AND b.MODULE_ID = ?"; 
+
+	
+	// User Access
+	// Users based on condition
+	public static final String QRY_USERIDS_ON_CONDITION = "SELECT USERID FROM OI_AD_PROFILE ";
+	
+	// Users based on user interest
+	public static final String QRY_USERIDS_ON_INTEREST = "SELECT USERID FROM OI_AD_PROFILE "
+			+ "WHERE INSTR(',' || REPLACE(UPPER(TAG_WORDS), ' ', NULL) || ',', ',' || REPLACE(UPPER(?), ' ', NULL) || ',', 1, 1) > 0";
+	
+	
+	// Consultation Paper members
+	public static final String QRY_CP_MEMBERS = "SELECT USERID FROM OI_CP_MEMBERS WHERE PAPERID = ? AND USERID IS NOT NULL";
+	
+	// Paper fixed group members
+	public static final String QRY_CP_FIXED_GROUP_CONDITION = "SELECT GRP.CONDITION FROM OI_FM_GROUPS GRP, OI_CP_MEMBERS MEM WHERE MEM.PAPERID = ? AND MEM.USERID IS NULL AND MEM.GROUPID = GRP.GROUPID";
+	
+	// Consultation Paper tag words
+	public static final String QRY_CP_TAG_WORDS = "SELECT name FROM oi_tags a, oi_tags_map b WHERE a.tag_id = b.tag_id AND b.MODULE_TYPE = 'CP' AND b.MODULE_ID = ?";
+	
+	public static final String QRY_CP_DEFAULT_MAIL_MESSAGE = "SELECT DESCRIPTION FROM OI_AD_CODE_MASTER WHERE TYPE = 'MAIL_TEMPLATE' AND VALUE = 'CP_DEFAULT_MAIL_BODY'";
+	
+	//Added by Oscar @ 26 June 2007
+	//Detail report - number of question respondents
+	public static final String NUMBER_OF_QUESTION_RESPONDENTS = "SELECT Q.QUESTIONID, COUNT(*) AS COUNT FROM OI_CP_PAPER C, OI_CP_QUESTIONS Q, OI_CP_RESPONSE R, OI_CPSU_DRAFTS D WHERE C.PAPERID = Q.PAPERID AND Q.QUESTIONID = R.QUESTIONID AND D.DRAFT_TYPE='C' AND D.STATUS = 'S' AND D.CPSUID = C.PAPERID AND D.USERID = R.USERID AND C.PAPERID = ? GROUP BY Q.QUESTIONORDER, Q.QUESTIONID ORDER BY NVL(Q.QUESTIONORDER,Q.QUESTIONID)";
+}
